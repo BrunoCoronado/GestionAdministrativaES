@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionAdministrativaES.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,8 +17,8 @@ namespace GestionAdministrativaES.Views
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            String usuario = txtUsuario.Text;
-            String contraseña = txtContraseña.Text;
+            UsuarioControlador usuarioControlador = new UsuarioControlador();
+            usuarioControlador.validarInicioSesion(txtUsuario.Text, txtContraseña.Text);
         }
     }
 }
