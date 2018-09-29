@@ -13,5 +13,10 @@ namespace GestionAdministrativaES.Views.Administrador
         {
 
         }
+
+        protected void btnSalones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Salon/AdministrarSalones.aspx",true);
+        }
     }
 }
