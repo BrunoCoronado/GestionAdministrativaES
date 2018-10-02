@@ -19,7 +19,6 @@ namespace GestionAdministrativaES.Models.DAO
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
                 connection.Close();
             }
         }
@@ -35,7 +34,6 @@ namespace GestionAdministrativaES.Models.DAO
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
                 connection.Close();
             }
         }
@@ -67,7 +65,6 @@ namespace GestionAdministrativaES.Models.DAO
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
                 connection.Close();
                 return null;
             }
@@ -85,7 +82,6 @@ namespace GestionAdministrativaES.Models.DAO
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
                 connection.Close();
             }
         }

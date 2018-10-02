@@ -19,7 +19,9 @@
             <td style="width: 118px">
                 <asp:Button ID="btnIniciarSesion" runat="server" OnClick="btnIniciarSesion_Click" style="height: 26px" Text="Iniciar Sesión" />
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:Button ID="btnRegistrarEstudiante" runat="server" OnClick="btnRegistrarEstudiante_Click" Text="Registrarse como estudiante" />
+            </td>
             <td>&nbsp;</td>
         </tr>
     </table>

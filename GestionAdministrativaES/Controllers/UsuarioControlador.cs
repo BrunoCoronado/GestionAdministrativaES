@@ -40,5 +40,34 @@ namespace GestionAdministrativaES.Controllers
                 HttpContext.Current.Response.Write("<script>window.alert('Error al iniciar sesión');</script>");
             }
         }
+
+        public void registrarUsuario(String idRol, string nombre, string correo, string nick, string contraseña)
+        {
+            if (usuarioDAO.registrarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña))
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Estudiante registrado!');</script>");
+                HttpContext.Current.Response.Redirect("", true);
+            }
+            else
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error al registrarse');</script>");
+                HttpContext.Current.Response.Redirect("", true);
+            }
+        }
+
+        public void buscarUsuario(String idUsuario)
+        {
+            usuarioDAO.buscarUsuario(Convert.ToInt32(idUsuario));
+        }
+
+        public void modificarUsuario(String idUsuario,String idRol, string nombre, string correo, string nick, string contraseña)
+        {
+            usuarioDAO.modificarUsuario(Convert.ToInt32(idUsuario),Convert.ToInt32(idRol), nombre,correo,nick,contraseña);
+        }
+
+        public void eliminarUsuario(String idUsuario)
+        {
+            usuarioDAO.eliminarUsuario(Convert.ToInt32(idUsuario));
+        }
     }
 }

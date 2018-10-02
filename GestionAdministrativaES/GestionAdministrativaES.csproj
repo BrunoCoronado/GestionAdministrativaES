@@ -156,6 +156,7 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Administrador\Menu.aspx" />
+    <Content Include="Views\Administrador\Usuario\AdministrarUsuarios.aspx" />
     <Content Include="Views\Catedratico\Menu.aspx" />
     <Content Include="Views\Estudiante\Menu.aspx" />
     <Content Include="Views\Login.aspx" />
@@ -228,6 +229,13 @@
     </Compile>
     <Compile Include="Views\Administrador\Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Administrador\Usuario\AdministrarUsuarios.aspx.cs">
+      <DependentUpon>AdministrarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Administrador\Usuario\AdministrarUsuarios.aspx.designer.cs">
+      <DependentUpon>AdministrarUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Catedratico\Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>

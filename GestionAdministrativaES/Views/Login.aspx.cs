@@ -20,5 +20,11 @@ namespace GestionAdministrativaES.Views
             UsuarioControlador usuarioControlador = new UsuarioControlador();
             usuarioControlador.validarInicioSesion(txtUsuario.Text, txtContraseña.Text);
         }
+
+        protected void btnRegistrarEstudiante_Click(object sender, EventArgs e)
+        {
+            UsuarioControlador usuarioControlador = new UsuarioControlador();
+            usuarioControlador.
+        }
     }
 }
