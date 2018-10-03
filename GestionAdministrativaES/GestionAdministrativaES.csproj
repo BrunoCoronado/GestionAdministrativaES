@@ -183,6 +183,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ReservacionControlador.cs" />
     <Compile Include="Controllers\SalonControlador.cs" />
     <Compile Include="Controllers\UsuarioControlador.cs" />
     <Compile Include="Default.aspx.cs">
@@ -195,7 +196,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAO\ReservacionDAO.cs" />
     <Compile Include="Models\DAO\SalonDAO.cs" />
+    <Compile Include="Models\Reservacion.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Salon.cs" />
     <Compile Include="Models\Usuario.cs" />

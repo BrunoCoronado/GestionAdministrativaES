@@ -60,5 +60,6 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario
             txtNickM.Text = "";
             txtContraseñaM.Text = "";
         }
+        
     }
 }

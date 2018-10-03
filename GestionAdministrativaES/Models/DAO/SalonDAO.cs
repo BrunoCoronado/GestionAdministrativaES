@@ -49,11 +49,9 @@ namespace GestionAdministrativaES.Models.DAO
 
                 if (reader.HasRows)
                 {
-                    Salon salon= new Salon();
-                    while (reader.Read())
-                    {
-                        salon= new Salon(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3));
-                    }
+                    reader.Read();
+                    Salon salon= new Salon(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3));
+                    
                     connection.Close();
                     return salon;
                 }

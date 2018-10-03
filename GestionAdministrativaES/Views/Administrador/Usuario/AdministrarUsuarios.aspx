@@ -27,7 +27,7 @@
         &nbsp;</p>
     <p>
         
-        AÑADIR SALON</p>
+        AÑADIR USUARIO</p>
     <p>
         
         <table class="nav-justified">
@@ -63,10 +63,8 @@
                 <td style="height: 20px; width: 145px">Rol</td>
                 <td style="height: 20px">
                     <asp:DropDownList ID="ddlRol" runat="server">
-                        <asp:ListItem Value="1">Administrador</asp:ListItem>
                         <asp:ListItem Value="2">Operador Del Sistema</asp:ListItem>
                         <asp:ListItem Value="3">Catedratico</asp:ListItem>
-                        <asp:ListItem Value="4">Estudiante</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td style="height: 20px"></td>
@@ -82,13 +80,13 @@
         
     </p>
     <br />
-    ELIMINAR SALON<br />
+    ELIMINAR USUARIO<br />
     <asp:DropDownList ID="DropDownListEliminar" runat="server" DataSourceID="SqlDataSource2" DataTextField="nick" DataValueField="idUsuario">
     </asp:DropDownList>
     <asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
     <br />
     <br />
-    MODIFICAR SALON<br />
+    MODIFICAR USUARIO<br />
     <table class="nav-justified">
         <tr>
             <td style="width: 153px; height: 22px">
@@ -132,10 +130,8 @@
                     &nbsp;</td>
                 <td style="height: 20px">
                     <asp:DropDownList ID="ddlRolM" runat="server">
-                        <asp:ListItem Value="1">Administrador</asp:ListItem>
                         <asp:ListItem Value="2">Operador Del Sistema</asp:ListItem>
                         <asp:ListItem Value="3">Catedratico</asp:ListItem>
-                        <asp:ListItem Value="4">Estudiante</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
