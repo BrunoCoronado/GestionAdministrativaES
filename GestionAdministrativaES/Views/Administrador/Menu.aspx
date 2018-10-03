@@ -3,17 +3,10 @@
     <table style="width:100%;">
     <tr>
         <td style="height: 20px">
-            <asp:Button ID="btnUsuarios" runat="server" Text="Usuarios" />
+            <asp:Button ID="btnUsuarios" runat="server" Text="Usuarios" OnClick="btnUsuarios_Click" />
         </td>
         <td style="height: 20px"></td>
         <td style="height: 20px"></td>
-    </tr>
-    <tr>
-        <td style="height: 25px">
-            <asp:Button ID="btnSalones" runat="server" Text="Salones" OnClick="btnSalones_Click" />
-        </td>
-        <td style="height: 25px"></td>
-        <td style="height: 25px"></td>
     </tr>
     <tr>
         <td>

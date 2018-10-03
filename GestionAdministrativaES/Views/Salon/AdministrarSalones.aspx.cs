@@ -38,8 +38,9 @@ namespace GestionAdministrativaES.Views.Salon
                 txtUbicacionM.Text = salon.ubicacion;
                 txtCapacidadM.Text = Convert.ToString(salon.capacidad);
             }
-            catch
+            catch(Exception ex)
             {
+
             }
         }
 

@@ -24,7 +24,7 @@ namespace GestionAdministrativaES.Views
         protected void btnRegistrarEstudiante_Click(object sender, EventArgs e)
         {
             UsuarioControlador usuarioControlador = new UsuarioControlador();
-            usuarioControlador.
+            //usuarioControlador.
         }
     }
 }

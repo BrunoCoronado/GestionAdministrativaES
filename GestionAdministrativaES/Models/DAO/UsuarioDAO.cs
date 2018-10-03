@@ -42,7 +42,7 @@ namespace GestionAdministrativaES.Models
         }
         
         public Boolean registrarUsuario(int idRol, string nombre, string correo, string nick, string contraseña) {
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = SQL.Conexion.getConnection();
             try {
                 connection.Open();
                 SqlCommand command = new SqlCommand("INSERT INTO usuario VALUES("+idRol+",'"+nombre+"','"+correo+"','"+nick+"','"+contraseña+"');", connection);
@@ -61,25 +61,25 @@ namespace GestionAdministrativaES.Models
             }
         }
 
-        //public void registrarUsuario(int idRol, string nombre, string correo, string nick, string contraseña)
-        //{
-        //    SqlConnection connection = new SqlConnection();
-        //    try
-        //    {
-        //        connection.Open();
-        //        SqlCommand command = new SqlCommand("INSERT INTO usuario VALUES(" + idRol + ",'" + nombre + "','" + correo + "','" + nick + "','" + contraseña + "');", connection);
-        //        command.ExecuteNonQuery();
-        //        connection.Close();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        connection.Close();
-        //    }
-        //}
+        public void insertarUsuario(int idRol, string nombre, string correo, string nick, string contraseña)
+        {
+            SqlConnection connection = SQL.Conexion.getConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("INSERT INTO usuario VALUES(" + idRol + ",'" + nombre + "','" + correo + "','" + nick + "','" + contraseña + "');", connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+            }
+        }
 
         public void eliminarUsuario(int idUsuario)
         {
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = SQL.Conexion.getConnection();
             try
             {
                 connection.Open();
@@ -95,7 +95,7 @@ namespace GestionAdministrativaES.Models
 
         public Usuario buscarUsuario(int idUsuario)
         {
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = SQL.Conexion.getConnection();
             try
             {
                 connection.Open();
@@ -107,6 +107,7 @@ namespace GestionAdministrativaES.Models
                     reader.Read();
                     Rol rol = new Rol(reader.GetInt32(6), reader.GetString(7));
                     Usuario usuario = new Usuario(reader.GetInt32(0), rol, reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
+                    connection.Close();
                     return usuario;
                 }
                 else
@@ -124,7 +125,7 @@ namespace GestionAdministrativaES.Models
 
         public void modificarUsuario(int idUsuario,int idRol, string nombre, string correo, string nick, string contraseña)
         {
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = SQL.Conexion.getConnection();
             try
             {
                 connection.Open();

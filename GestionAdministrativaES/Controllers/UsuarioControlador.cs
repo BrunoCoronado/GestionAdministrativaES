@@ -43,31 +43,97 @@ namespace GestionAdministrativaES.Controllers
 
         public void registrarUsuario(String idRol, string nombre, string correo, string nick, string contraseña)
         {
-            if (usuarioDAO.registrarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña))
+            try
             {
-                HttpContext.Current.Response.Write("<script>window.alert('Estudiante registrado!');</script>");
-                HttpContext.Current.Response.Redirect("", true);
+                if (nombre != "" & correo != "" & nick != "" & contraseña != "")
+                {
+                    if (usuarioDAO.registrarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña))
+                    {
+                        HttpContext.Current.Response.Write("<script>window.alert('Estudiante registrado!');</script>");
+                        HttpContext.Current.Response.Redirect("", true);
+                    }
+                    else
+                    {
+                        HttpContext.Current.Response.Write("<script>window.alert('Error al registrarse');</script>");
+                        HttpContext.Current.Response.Redirect("", true);
+                    }
+                }
+                else
+                {
+                    HttpContext.Current.Response.Write("<script>window.alert('No se permiten espacios en blanco!');</script>");
+                }
             }
-            else
+            catch (Exception e)
             {
-                HttpContext.Current.Response.Write("<script>window.alert('Error al registrarse');</script>");
-                HttpContext.Current.Response.Redirect("", true);
+                HttpContext.Current.Response.Write("<script>window.alert('Error al registrar usuario!');</script>");
             }
         }
 
-        public void buscarUsuario(String idUsuario)
+        public void insertarUsuario(string idRol, string nombre, string correo, string nick, string contraseña)
         {
-            usuarioDAO.buscarUsuario(Convert.ToInt32(idUsuario));
+            try
+            {
+                if (nombre != "" & correo != "" & nick != "" & contraseña != "")
+                {
+                    usuarioDAO.insertarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña);
+                    HttpContext.Current.Response.Redirect("../Usuario/AdministrarUsuarios.aspx", true);
+                }
+                else
+                {
+                    HttpContext.Current.Response.Write("<script>window.alert('No se permiten espacios en blanco!');</script>");
+                }
+            }
+            catch (Exception e)
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error al registrar usuario!');</script>");
+            }
+        }
+
+        public Usuario buscarUsuario(String idUsuario)
+        {
+            Usuario usuario = usuarioDAO.buscarUsuario(Convert.ToInt32(idUsuario));
+            if (usuario != null)
+            {
+                return usuario;
+            }
+            else
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error al obtener usuario.');</script>");
+                return null;
+            }
         }
 
         public void modificarUsuario(String idUsuario,String idRol, string nombre, string correo, string nick, string contraseña)
         {
-            usuarioDAO.modificarUsuario(Convert.ToInt32(idUsuario),Convert.ToInt32(idRol), nombre,correo,nick,contraseña);
+            try
+            {
+                if (nombre != "" & correo != "" & nick != "" & contraseña != "")
+                {
+                    usuarioDAO.modificarUsuario(Convert.ToInt32(idUsuario), Convert.ToInt32(idRol), nombre, correo, nick, contraseña);
+                    HttpContext.Current.Response.Redirect("../Usuario/AdministrarUsuarios.aspx", true);
+                }
+                else
+                {
+                    HttpContext.Current.Response.Write("<script>window.alert('No se permiten espacios en blanco!');</script>");
+                }
+            }
+            catch (Exception e)
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error al modificar usuario.');</script>");
+            }
         }
 
         public void eliminarUsuario(String idUsuario)
         {
-            usuarioDAO.eliminarUsuario(Convert.ToInt32(idUsuario));
+            try
+            {
+                usuarioDAO.eliminarUsuario(Convert.ToInt32(idUsuario));
+                HttpContext.Current.Response.Redirect("../Usuario/AdministrarUsuarios.aspx", true);
+            }
+            catch (Exception e)
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error al eliminar usuario.');</script>");
+            }
         }
     }
 }
