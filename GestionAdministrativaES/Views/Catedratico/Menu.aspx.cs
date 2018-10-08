@@ -13,5 +13,15 @@ namespace GestionAdministrativaES.Views.Catedratico
         {
 
         }
+
+        protected void btnReservaciones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reservaciones/AdministrarReservaciones.aspx", true); 
+        }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Login.aspx", true);
+        }
     }
 }

@@ -8,7 +8,8 @@ namespace GestionAdministrativaES.Models.DAO
 {
     public class SalonDAO
     {
-        public void insertarSalon(String ubicacion, int capacidad) {
+        public void insertarSalon(String ubicacion, int capacidad)
+        {
             SqlConnection connection = SQL.Conexion.getConnection();
             try
             {
@@ -23,7 +24,8 @@ namespace GestionAdministrativaES.Models.DAO
             }
         }
 
-        public void eliminarSalon(int idSalon) {
+        public void eliminarSalon(int idSalon)
+        {
             SqlConnection connection = SQL.Conexion.getConnection();
             try
             {
@@ -83,7 +85,5 @@ namespace GestionAdministrativaES.Models.DAO
                 connection.Close();
             }
         }
-        
-        public void listarSalones() { }
     }
 }

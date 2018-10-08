@@ -1,4 +1,5 @@
 ﻿using GestionAdministrativaES.Controllers;
+using GestionAdministrativaES.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,9 @@ namespace GestionAdministrativaES.Views
 {
     public partial class Login : System.Web.UI.Page
     {
+        public static Usuario usuario = new Usuario();
+        private UsuarioControlador usuarioControlador = new UsuarioControlador();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,14 +21,17 @@ namespace GestionAdministrativaES.Views
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            UsuarioControlador usuarioControlador = new UsuarioControlador();
             usuarioControlador.validarInicioSesion(txtUsuario.Text, txtContraseña.Text);
         }
 
         protected void btnRegistrarEstudiante_Click(object sender, EventArgs e)
         {
-            UsuarioControlador usuarioControlador = new UsuarioControlador();
-            //usuarioControlador.
+            Response.Redirect("Estudiante/Registro.aspx",true);
+        }
+
+        protected void btnRecuperarContraseña_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Administracion/RecuperarContraseña.aspx", true);
         }
     }
 }

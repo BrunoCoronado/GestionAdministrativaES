@@ -3,7 +3,8 @@
     <p>
         &nbsp;</p>
     <p>
-        LISTADO DE USUARIOS</p>
+        LISTADO DE USUARIOS<asp:Button ID="btnRegresar" runat="server" OnClick="btnRegresar_Click" Text="Regresar" />
+    </p>
     <p>
         &nbsp;</p>
     <p>
@@ -35,29 +36,37 @@
                 <td style="height: 20px; width: 145px">Nombre</td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtNombre" runat="server" Width="253px"></asp:TextBox>
+                    Carnet</td>
+                <td style="height: 20px">
+                    <asp:TextBox ID="txtCarnet" runat="server"></asp:TextBox>
                 </td>
-                <td style="height: 20px"></td>
             </tr>
             <tr>
                 <td style="height: 20px; width: 145px">Correo</td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtCorreo" runat="server" Width="247px"></asp:TextBox>
+                    Telefono</td>
+                <td style="height: 20px">
+                    <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
                 </td>
-                <td style="height: 20px"></td>
             </tr>
             <tr>
                 <td style="height: 20px; width: 145px">Nick</td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtNick" runat="server" Width="247px"></asp:TextBox>
+                    Palabra Clave</td>
+                <td style="height: 20px">
+                    <asp:TextBox ID="txtPalabraClave" runat="server"></asp:TextBox>
                 </td>
-                <td style="height: 20px"></td>
             </tr>
             <tr>
                 <td style="height: 20px; width: 145px">Contraseña</td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtContraseña" runat="server" Width="247px"></asp:TextBox>
+                    Confirmar Contraseña</td>
+                <td style="height: 20px">
+                    <asp:TextBox ID="txtConfirmarContraseña" runat="server"></asp:TextBox>
                 </td>
-                <td style="height: 20px"></td>
             </tr>
             <tr>
                 <td style="height: 20px; width: 145px">Rol</td>
@@ -96,7 +105,7 @@
             <td style="height: 22px; width: 128px">Nombre</td>
             <td style="height: 22px">
                 <asp:TextBox ID="txtNombreM" runat="server" Width="259px"></asp:TextBox>
-                <asp:TextBox ID="txtIdUsuarioM" runat="server" Visible="False"></asp:TextBox>
+                Carnet<asp:TextBox ID="txtCarnetM" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -106,6 +115,7 @@
             <td style="width: 128px; height: 26px;">Correo</td>
             <td style="height: 26px">
                 <asp:TextBox ID="txtCorreoM" runat="server" Width="260px"></asp:TextBox>
+                Telefono<asp:TextBox ID="txtTelefonoM" runat="server"></asp:TextBox>
             </td>
         </tr>
             <tr>
@@ -114,6 +124,7 @@
                 <td style="height: 20px; width: 145px">Nick</td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtNickM" runat="server" Width="247px"></asp:TextBox>
+                    Palabra Clave<asp:TextBox ID="txtPalabraClaveM" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -122,6 +133,7 @@
                 <td style="height: 20px; width: 145px">Contraseña</td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtContraseñaM" runat="server" Width="247px"></asp:TextBox>
+                    Confirmar Contraseña<asp:TextBox ID="txtConfirmarContraseñaM" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -140,7 +152,9 @@
             <td style="width: 128px">
                 <asp:Button ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:TextBox ID="txtIdUsuarioM" runat="server" Visible="False"></asp:TextBox>
+            </td>
         </tr>
     </table>
 </asp:Content>

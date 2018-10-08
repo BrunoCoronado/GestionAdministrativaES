@@ -10,6 +10,11 @@
     <tr>
         <td style="height: 25px">
             <asp:Button ID="btnSalones" runat="server" Text="Salones" OnClick="btnSalones_Click" />
+            <asp:Button ID="btnReservaciones" runat="server" OnClick="btnReservaciones_Click" Text="Administracion de Reservaciones" />
+            <asp:Button ID="btnIncidentesSalones" runat="server" OnClick="btnIncidentesSalones_Click" Text="Incidentes de Salones" />
+            <asp:Button ID="Button1" runat="server" Text="Insumos" />
+            <asp:Button ID="Button2" runat="server" Text="Incidentes de Insumos" />
+            <asp:Button ID="btnCerrarSesion" runat="server" Text="CerrarSesion" OnClick="btnCerrarSesion_Click" />
         </td>
         <td style="height: 25px"></td>
         <td style="height: 25px"></td>

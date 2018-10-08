@@ -19,7 +19,14 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario
         
         protected void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
-            usuarioControlador.insertarUsuario(ddlRol.SelectedValue,txtNombre.Text,txtCorreo.Text,txtNick.Text,txtContraseña.Text);
+            if (txtContraseña.Text.Equals(txtConfirmarContraseña.Text))
+            {
+                usuarioControlador.insertarUsuario(ddlRol.SelectedValue, txtNombre.Text, txtCorreo.Text, txtNick.Text, txtContraseña.Text, txtCarnet.Text, txtTelefono.Text, txtPalabraClave.Text);
+            }
+            else
+            {
+                Response.Write("<script>window.alert('Error al confirmar contraseña');</script>");
+            }
             txtNombre.Text = "";
             txtCorreo.Text = "";
             txtNick.Text = "";
@@ -45,7 +52,7 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario
                 ddlRolM.ClearSelection();
                 ddlRolM.Items.FindByValue(Convert.ToString(usuario.rol.idRol)).Selected = true;
             }
-            catch (Exception ex)
+            catch
             {
 
             }
@@ -53,13 +60,24 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-            usuarioControlador.modificarUsuario(txtIdUsuarioM.Text,ddlRolM.SelectedValue,txtNombreM.Text,txtCorreoM.Text,txtNickM.Text,txtContraseñaM.Text);
+            if (txtContraseñaM.Text.Equals(txtConfirmarContraseñaM.Text))
+            {
+                usuarioControlador.modificarUsuario(txtIdUsuarioM.Text, ddlRolM.SelectedValue, txtNombreM.Text, txtCorreoM.Text, txtNickM.Text, txtContraseñaM.Text, txtCarnetM.Text, txtTelefonoM.Text, txtPalabraClaveM.Text);
+            }
+            else
+            {
+                Response.Write("<script>window.alert('Error al confirmar contraseña');</script>");
+            }
             txtIdUsuarioM.Text = "";
             txtNombreM.Text = "";
             txtCorreoM.Text = "";
             txtNickM.Text = "";
             txtContraseñaM.Text = "";
         }
-        
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Menu.aspx",true);
+        }
     }
 }

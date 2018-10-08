@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -155,13 +158,19 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Administracion\CargaMasiva.aspx" />
+    <Content Include="Views\Administracion\RecuperarContraseña.aspx" />
     <Content Include="Views\Administrador\Menu.aspx" />
     <Content Include="Views\Administrador\Usuario\AdministrarUsuarios.aspx" />
     <Content Include="Views\Catedratico\Menu.aspx" />
+    <Content Include="Views\Catedratico\Reservaciones\AdministrarReservaciones.aspx" />
     <Content Include="Views\Estudiante\Menu.aspx" />
+    <Content Include="Views\Estudiante\Registro.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\OperadorDelSistema\Menu.aspx" />
-    <Content Include="Views\Salon\AdministrarSalones.aspx" />
+    <Content Include="Views\OperadorDelSistema\Salon\AdministrarIncidentesSalones.aspx" />
+    <Content Include="Views\OperadorDelSistema\Salon\AdministrarSalones.aspx" />
+    <Content Include="Views\OperadorDelSistema\Salon\Reservacion\AdministrarReservaciones.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -185,6 +194,7 @@
     </Compile>
     <Compile Include="Controllers\ReservacionControlador.cs" />
     <Compile Include="Controllers\SalonControlador.cs" />
+    <Compile Include="Controllers\SalonIncidenteControlador.cs" />
     <Compile Include="Controllers\UsuarioControlador.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -196,8 +206,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAO\IncidenteSalonDAO.cs" />
     <Compile Include="Models\DAO\ReservacionDAO.cs" />
     <Compile Include="Models\DAO\SalonDAO.cs" />
+    <Compile Include="Models\IncidenteSalon.cs" />
     <Compile Include="Models\Reservacion.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Salon.cs" />
@@ -226,6 +238,20 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Administracion\CargaMasiva.aspx.cs">
+      <DependentUpon>CargaMasiva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Administracion\CargaMasiva.aspx.designer.cs">
+      <DependentUpon>CargaMasiva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Administracion\RecuperarContraseña.aspx.cs">
+      <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Administracion\RecuperarContraseña.aspx.designer.cs">
+      <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Administrador\Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -247,12 +273,26 @@
     <Compile Include="Views\Catedratico\Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Catedratico\Reservaciones\AdministrarReservaciones.aspx.cs">
+      <DependentUpon>AdministrarReservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Catedratico\Reservaciones\AdministrarReservaciones.aspx.designer.cs">
+      <DependentUpon>AdministrarReservaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Estudiante\Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Estudiante\Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Estudiante\Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estudiante\Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -268,12 +308,26 @@
     <Compile Include="Views\OperadorDelSistema\Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Salon\AdministrarSalones.aspx.cs">
+    <Compile Include="Views\OperadorDelSistema\Salon\AdministrarIncidentesSalones.aspx.cs">
+      <DependentUpon>AdministrarIncidentesSalones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Salon\AdministrarIncidentesSalones.aspx.designer.cs">
+      <DependentUpon>AdministrarIncidentesSalones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Salon\AdministrarSalones.aspx.cs">
       <DependentUpon>AdministrarSalones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Salon\AdministrarSalones.aspx.designer.cs">
+    <Compile Include="Views\OperadorDelSistema\Salon\AdministrarSalones.aspx.designer.cs">
       <DependentUpon>AdministrarSalones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Salon\Reservacion\AdministrarReservaciones.aspx.cs">
+      <DependentUpon>AdministrarReservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Salon\Reservacion\AdministrarReservaciones.aspx.designer.cs">
+      <DependentUpon>AdministrarReservaciones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

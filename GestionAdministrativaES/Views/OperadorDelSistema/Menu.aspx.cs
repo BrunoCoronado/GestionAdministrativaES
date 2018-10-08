@@ -16,7 +16,22 @@ namespace GestionAdministrativaES.Views.OperadorDelSistema
 
         protected void btnSalones_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Salon/AdministrarSalones.aspx", true);
+            Response.Redirect("Salon/AdministrarSalones.aspx", true);
+        }
+
+        protected void btnReservaciones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Salon/Reservacion/AdministrarReservaciones.aspx", true);
+        }
+
+        protected void btnIncidentesSalones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Salon/AdministrarIncidentesSalones.aspx", true);
+        }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Login.aspx", true);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace GestionAdministrativaES.Controllers
                 if (ubicacion != "")
                 {
                     salonDAO.insertarSalon(ubicacion, Convert.ToInt32(capacidad));
-                    HttpContext.Current.Response.Redirect("../Salon/AdministrarSalones.aspx", true);
+                    HttpContext.Current.Response.Redirect("AdministrarSalones.aspx", true);
                 }
                 else
                 {
@@ -37,7 +37,7 @@ namespace GestionAdministrativaES.Controllers
             try
             {
                 salonDAO.eliminarSalon(Convert.ToInt32(idSalon));
-                HttpContext.Current.Response.Redirect("../Salon/AdministrarSalones.aspx", true);
+                HttpContext.Current.Response.Redirect("AdministrarSalones.aspx", true);
             }
             catch
             {
@@ -66,7 +66,7 @@ namespace GestionAdministrativaES.Controllers
                 if (ubicacion != "")
                 {
                     salonDAO.modificarSalon(Convert.ToInt32(idSalon), ubicacion, Convert.ToInt32(capacidad));
-                    HttpContext.Current.Response.Redirect("../Salon/AdministrarSalones.aspx", true);
+                    HttpContext.Current.Response.Redirect("AdministrarSalones.aspx", true);
                 }
                 else
                 {

@@ -19,12 +19,9 @@ namespace GestionAdministrativaES.Models
 
                 if (reader.HasRows)
                 {
-                    Usuario usuario = new Usuario();
-                    while (reader.Read())
-                    {
-                        Rol rol = new Rol(reader.GetInt32(6), reader.GetString(7));
-                        usuario = new Usuario(reader.GetInt32(0), rol, reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
-                    }
+                    reader.Read();
+                    Rol rol = new Rol(reader.GetInt32(1), reader.GetString(10));
+                    Usuario usuario = new Usuario(reader.GetInt32(0), rol, reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetString(8));
                     connection.Close();
                     return usuario;
                 }
@@ -41,11 +38,11 @@ namespace GestionAdministrativaES.Models
             }
         }
         
-        public Boolean registrarUsuario(int idRol, string nombre, string correo, string nick, string contraseña) {
+        public Boolean registrarUsuario(int idRol, string nombre, string correo, string nick, string contraseña, int carnet, int telefono, string palabraClave) {
             SqlConnection connection = SQL.Conexion.getConnection();
             try {
                 connection.Open();
-                SqlCommand command = new SqlCommand("INSERT INTO usuario VALUES("+idRol+",'"+nombre+"','"+correo+"','"+nick+"','"+contraseña+"');", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO usuario VALUES(" + idRol + ",'" + nombre + "','" + correo + "','" + nick + "','" + contraseña + "'," + carnet + "," + telefono + ",'" + palabraClave + "');", connection);
                 if (command.ExecuteNonQuery() > 0)
                 {
                     connection.Close();
@@ -61,13 +58,13 @@ namespace GestionAdministrativaES.Models
             }
         }
 
-        public void insertarUsuario(int idRol, string nombre, string correo, string nick, string contraseña)
+        public void insertarUsuario(int idRol, string nombre, string correo, string nick, string contraseña,int carnet, int telefono, string palabraClave)
         {
             SqlConnection connection = SQL.Conexion.getConnection();
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("INSERT INTO usuario VALUES(" + idRol + ",'" + nombre + "','" + correo + "','" + nick + "','" + contraseña + "');", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO usuario VALUES(" + idRol + ",'" + nombre + "','" + correo + "','" + nick + "','" + contraseña + "',"+carnet+","+telefono+",'"+palabraClave+"');", connection);
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -105,8 +102,8 @@ namespace GestionAdministrativaES.Models
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    Rol rol = new Rol(reader.GetInt32(6), reader.GetString(7));
-                    Usuario usuario = new Usuario(reader.GetInt32(0), rol, reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
+                    Rol rol = new Rol(reader.GetInt32(1), reader.GetString(10));
+                    Usuario usuario = new Usuario(reader.GetInt32(0), rol, reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetString(8));
                     connection.Close();
                     return usuario;
                 }
@@ -123,13 +120,13 @@ namespace GestionAdministrativaES.Models
             }
         }
 
-        public void modificarUsuario(int idUsuario,int idRol, string nombre, string correo, string nick, string contraseña)
+        public void modificarUsuario(int idUsuario,int idRol, string nombre, string correo, string nick, string contraseña, int carnet, int telefono, string palabraClave)
         {
             SqlConnection connection = SQL.Conexion.getConnection();
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("UPDATE usuario SET idRol = "+idRol+", nombre = '"+nombre+"', correo = '"+correo+"', nick='"+nick+"', contraseña = '"+contraseña+"' WHERE idUsuario = "+idUsuario+";", connection);
+                SqlCommand command = new SqlCommand("UPDATE usuario SET idRol = "+idRol+", nombre = '"+nombre+"', correo = '"+correo+"', nick='"+nick+"', contraseña = '"+contraseña+"', carnet = "+carnet+", telefono = "+telefono+", palabraClave = '"+palabraClave+"' WHERE idUsuario = "+idUsuario+";", connection);
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -138,7 +135,50 @@ namespace GestionAdministrativaES.Models
                 connection.Close();
             }
         }
-        public void verUsuarios() { }
-        public void recuperarContraseña() { }
+
+        public Usuario validarPalabraClave(string nick, string palabraClave)
+        {
+            SqlConnection connection = SQL.Conexion.getConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM usuario u INNER JOIN rol r ON u.idRol = r.idRol WHERE u.nick = '"+nick+"' AND u.palabraClave = '"+palabraClave+"';", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    Rol rol = new Rol(reader.GetInt32(1), reader.GetString(10));
+                    Usuario usuario = new Usuario(reader.GetInt32(0), rol, reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetString(8));
+                    connection.Close();
+                    return usuario;
+                }
+                else
+                {
+                    connection.Close();
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                return null;
+            }
+
+        }
+
+        public void cambiarContraseña(string nick, string contraseña)
+        {
+            SqlConnection connection = SQL.Conexion.getConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("UPDATE usuario SET contraseña = '"+contraseña+"' WHERE nick = '"+nick+"';", connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }catch(Exception ex)
+            {
+                connection.Close();
+            }
+        }
     }
 }

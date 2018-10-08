@@ -16,7 +16,17 @@ namespace GestionAdministrativaES.Views.Administrador
 
         protected void btnUsuarios_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Usuario/AdministrarUsuarios.aspx", true);
+            Response.Redirect("../Administrador/Usuario/AdministrarUsuarios.aspx", true);
+        }
+
+        protected void btnCargaMasiva_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Administracion/CargaMasiva.aspx", true);
+        }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Login.aspx", true);
         }
     }
 }

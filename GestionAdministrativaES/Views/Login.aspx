@@ -21,6 +21,7 @@
             </td>
             <td>
                 <asp:Button ID="btnRegistrarEstudiante" runat="server" OnClick="btnRegistrarEstudiante_Click" Text="Registrarse como estudiante" />
+                <asp:Button ID="btnRecuperarContraseña" runat="server" OnClick="btnRecuperarContraseña_Click" Text="Recuperar Contraseña" />
             </td>
             <td>&nbsp;</td>
         </tr>

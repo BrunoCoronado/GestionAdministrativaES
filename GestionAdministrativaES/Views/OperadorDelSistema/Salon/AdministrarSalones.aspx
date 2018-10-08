@@ -3,7 +3,8 @@
     <p>
         &nbsp;</p>
     <p>
-        LISTADO DE SALONES</p>
+        LISTADO DE SALONES<asp:Button ID="btnRegresar" runat="server" OnClick="btnRegresar_Click" Text="Regresar" />
+    </p>
     <p>
         &nbsp;</p>
     <p>

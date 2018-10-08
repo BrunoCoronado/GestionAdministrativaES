@@ -1,4 +1,5 @@
 ﻿using GestionAdministrativaES.Models;
+using GestionAdministrativaES.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace GestionAdministrativaES.Controllers
             if (usuario != null)
             {
                 HttpContext.Current.Response.Write("<script>window.alert('Bienvenido al Sistema');</script>");
+                Login.usuario = usuario;
                 string pagina = "/Menu.aspx";
                 switch (usuario.rol.nombre)
                 {
@@ -41,21 +43,21 @@ namespace GestionAdministrativaES.Controllers
             }
         }
 
-        public void registrarUsuario(String idRol, string nombre, string correo, string nick, string contraseña)
+        public void registrarUsuario(string idRol, string nombre, string correo, string nick, string contraseña, string carnet, string telefono, string palabraClave)
         {
             try
             {
                 if (nombre != "" & correo != "" & nick != "" & contraseña != "")
                 {
-                    if (usuarioDAO.registrarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña))
+                    if (usuarioDAO.registrarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña, Convert.ToInt32(carnet), Convert.ToInt32(telefono), palabraClave)) 
                     {
                         HttpContext.Current.Response.Write("<script>window.alert('Estudiante registrado!');</script>");
-                        HttpContext.Current.Response.Redirect("", true);
+                        HttpContext.Current.Response.Redirect("../Login.aspx", true);
                     }
                     else
                     {
                         HttpContext.Current.Response.Write("<script>window.alert('Error al registrarse');</script>");
-                        HttpContext.Current.Response.Redirect("", true);
+                        HttpContext.Current.Response.Redirect("../Login.aspx", true);
                     }
                 }
                 else
@@ -69,13 +71,13 @@ namespace GestionAdministrativaES.Controllers
             }
         }
 
-        public void insertarUsuario(string idRol, string nombre, string correo, string nick, string contraseña)
+        public void insertarUsuario(string idRol, string nombre, string correo, string nick, string contraseña, string carnet, string telefono, string palabraReservada)
         {
             try
             {
                 if (nombre != "" & correo != "" & nick != "" & contraseña != "")
                 {
-                    usuarioDAO.insertarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña);
+                    usuarioDAO.insertarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña, Convert.ToInt32(carnet), Convert.ToInt32(telefono), palabraReservada);
                     HttpContext.Current.Response.Redirect("../Usuario/AdministrarUsuarios.aspx", true);
                 }
                 else
@@ -89,7 +91,7 @@ namespace GestionAdministrativaES.Controllers
             }
         }
 
-        public Usuario buscarUsuario(String idUsuario)
+        public Usuario buscarUsuario(string idUsuario)
         {
             Usuario usuario = usuarioDAO.buscarUsuario(Convert.ToInt32(idUsuario));
             if (usuario != null)
@@ -103,13 +105,13 @@ namespace GestionAdministrativaES.Controllers
             }
         }
 
-        public void modificarUsuario(String idUsuario,String idRol, string nombre, string correo, string nick, string contraseña)
+        public void modificarUsuario(string idUsuario, string idRol, string nombre, string correo, string nick, string contraseña, string carnet, string telefono, string palabraClave)
         {
             try
             {
                 if (nombre != "" & correo != "" & nick != "" & contraseña != "")
                 {
-                    usuarioDAO.modificarUsuario(Convert.ToInt32(idUsuario), Convert.ToInt32(idRol), nombre, correo, nick, contraseña);
+                    usuarioDAO.modificarUsuario(Convert.ToInt32(idUsuario), Convert.ToInt32(idRol), nombre, correo, nick, contraseña, Convert.ToInt32(carnet), Convert.ToInt32(telefono), palabraClave);
                     HttpContext.Current.Response.Redirect("../Usuario/AdministrarUsuarios.aspx", true);
                 }
                 else
@@ -123,7 +125,7 @@ namespace GestionAdministrativaES.Controllers
             }
         }
 
-        public void eliminarUsuario(String idUsuario)
+        public void eliminarUsuario(string idUsuario)
         {
             try
             {
@@ -135,5 +137,42 @@ namespace GestionAdministrativaES.Controllers
                 HttpContext.Current.Response.Write("<script>window.alert('Error al eliminar usuario.');</script>");
             }
         }
+
+        public Usuario validarPalabraClave(string nick, string palabraClave)
+        {
+            try
+            {
+                Usuario usuario = usuarioDAO.validarPalabraClave(nick, palabraClave); 
+                if (usuario != null)
+                {
+                    return usuario;
+                }
+                else
+                {
+                    HttpContext.Current.Response.Write("<script>window.alert('Error al obtener usuario.');</script>");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error al obtener usuario.');</script>");
+                return null;
+            }
+        }
+
+        public void cambiarContraseña(string nick, string contraseña)
+        {
+            try
+            {
+                usuarioDAO.cambiarContraseña(nick,contraseña);
+                HttpContext.Current.Response.Redirect("../Login.aspx", true);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void cargaMasiva() { }
     }
 }
