@@ -11,23 +11,5 @@ namespace GestionAdministrativaES.Views.Catedratico {
     
     
     public partial class Menu {
-        
-        /// <summary>
-        /// Control btnReservaciones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReservaciones;
-        
-        /// <summary>
-        /// Control btnCerrarSesion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
     }
 }

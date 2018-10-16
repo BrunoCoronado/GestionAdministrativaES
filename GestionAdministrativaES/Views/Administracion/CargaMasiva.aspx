@@ -6,7 +6,6 @@
     <p>
         <asp:FileUpload id="FileUploadControl" runat="server" />
         <asp:Button runat="server" id="UploadButton" text="Upload" onclick="UploadButton_Click" />
-        <asp:Button ID="btnRegresar" runat="server" OnClick="btnRegresar_Click" Text="Regresar" />
         <br /><br />
         <asp:Label runat="server" id="StatusLabel" text="Upload status: " />
     </p>

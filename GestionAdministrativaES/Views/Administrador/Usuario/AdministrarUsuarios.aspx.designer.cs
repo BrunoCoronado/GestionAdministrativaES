@@ -13,40 +13,13 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario {
     public partial class AdministrarUsuarios {
         
         /// <summary>
-        /// Control btnRegresar.
+        /// Control tbUsuarios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegresar;
-        
-        /// <summary>
-        /// Control GridView1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-        
-        /// <summary>
-        /// Control SqlDataSource2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-        
-        /// <summary>
-        /// Control SqlDataSource1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbUsuarios;
         
         /// <summary>
         /// Control txtNombre.
@@ -55,16 +28,7 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
-        
-        /// <summary>
-        /// Control txtCarnet.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCarnet;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombre;
         
         /// <summary>
         /// Control txtCorreo.
@@ -73,7 +37,7 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCorreo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtCorreo;
         
         /// <summary>
         /// Control txtTelefono.
@@ -82,43 +46,16 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtTelefono;
         
         /// <summary>
-        /// Control txtNick.
+        /// Control txtCarnet.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNick;
-        
-        /// <summary>
-        /// Control txtPalabraClave.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPalabraClave;
-        
-        /// <summary>
-        /// Control txtContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseña;
-        
-        /// <summary>
-        /// Control txtConfirmarContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmarContraseña;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtCarnet;
         
         /// <summary>
         /// Control ddlRol.
@@ -127,43 +64,52 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRol;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlRol;
         
         /// <summary>
-        /// Control btnAgregarUsuario.
+        /// Control txtContraseña.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarUsuario;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtContraseña;
         
         /// <summary>
-        /// Control DropDownListEliminar.
+        /// Control txtUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListEliminar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUsuario;
         
         /// <summary>
-        /// Control btnEliminar.
+        /// Control txtPalabraClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPalabraClave;
         
         /// <summary>
-        /// Control DropDownListModificar.
+        /// Control txtConfirmarContraseña.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListModificar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtConfirmarContraseña;
+        
+        /// <summary>
+        /// Control lblIdUsuarioM.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIdUsuarioM;
         
         /// <summary>
         /// Control txtNombreM.
@@ -172,25 +118,7 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreM;
-        
-        /// <summary>
-        /// Control txtCarnetM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCarnetM;
-        
-        /// <summary>
-        /// Control btnBuscar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombreM;
         
         /// <summary>
         /// Control txtCorreoM.
@@ -199,7 +127,7 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCorreoM;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtCorreoM;
         
         /// <summary>
         /// Control txtTelefonoM.
@@ -208,43 +136,16 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefonoM;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtTelefonoM;
         
         /// <summary>
-        /// Control txtNickM.
+        /// Control txtCarnetM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNickM;
-        
-        /// <summary>
-        /// Control txtPalabraClaveM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPalabraClaveM;
-        
-        /// <summary>
-        /// Control txtContraseñaM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseñaM;
-        
-        /// <summary>
-        /// Control txtConfirmarContraseñaM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmarContraseñaM;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtCarnetM;
         
         /// <summary>
         /// Control ddlRolM.
@@ -253,24 +154,24 @@ namespace GestionAdministrativaES.Views.Administrador.Usuario {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRolM;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlRolM;
         
         /// <summary>
-        /// Control btnModificar.
+        /// Control txtUsuarioM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUsuarioM;
         
         /// <summary>
-        /// Control txtIdUsuarioM.
+        /// Control txtPalabraClaveM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdUsuarioM;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPalabraClaveM;
     }
 }

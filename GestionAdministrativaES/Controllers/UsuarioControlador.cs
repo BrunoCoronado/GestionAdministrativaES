@@ -1,7 +1,9 @@
-﻿using GestionAdministrativaES.Models;
+﻿using ExcelDataReader;
+using GestionAdministrativaES.Models;
 using GestionAdministrativaES.Views;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -47,7 +49,7 @@ namespace GestionAdministrativaES.Controllers
         {
             try
             {
-                if (nombre != "" & correo != "" & nick != "" & contraseña != "")
+                if (nombre != "" & correo != "" & nick != "" & contraseña != "" & correo != "" & carnet != "" & telefono != "" & palabraClave != "")
                 {
                     if (usuarioDAO.registrarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña, Convert.ToInt32(carnet), Convert.ToInt32(telefono), palabraClave)) 
                     {
@@ -71,13 +73,13 @@ namespace GestionAdministrativaES.Controllers
             }
         }
 
-        public void insertarUsuario(string idRol, string nombre, string correo, string nick, string contraseña, string carnet, string telefono, string palabraReservada)
+        public void insertarUsuario(string idRol, string nombre, string correo, string nick, string contraseña, string carnet, string telefono, string palabraClave)
         {
             try
             {
-                if (nombre != "" & correo != "" & nick != "" & contraseña != "")
+                if (nombre != "" & correo != "" & nick != "" & contraseña != "" & correo != "" & carnet != "" & telefono != "" & palabraClave != "")
                 {
-                    usuarioDAO.insertarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña, Convert.ToInt32(carnet), Convert.ToInt32(telefono), palabraReservada);
+                    usuarioDAO.insertarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña, Convert.ToInt32(carnet), Convert.ToInt32(telefono), palabraClave);
                     HttpContext.Current.Response.Redirect("../Usuario/AdministrarUsuarios.aspx", true);
                 }
                 else
@@ -105,13 +107,13 @@ namespace GestionAdministrativaES.Controllers
             }
         }
 
-        public void modificarUsuario(string idUsuario, string idRol, string nombre, string correo, string nick, string contraseña, string carnet, string telefono, string palabraClave)
+        public void modificarUsuario(string idUsuario, string idRol, string nombre, string correo, string nick, string carnet, string telefono, string palabraClave)
         {
             try
             {
-                if (nombre != "" & correo != "" & nick != "" & contraseña != "")
+                if (nombre != "" & correo != "" & nick != "" &  correo != "" & carnet != "" & telefono != "" & palabraClave != "")
                 {
-                    usuarioDAO.modificarUsuario(Convert.ToInt32(idUsuario), Convert.ToInt32(idRol), nombre, correo, nick, contraseña, Convert.ToInt32(carnet), Convert.ToInt32(telefono), palabraClave);
+                    usuarioDAO.modificarUsuario(Convert.ToInt32(idUsuario), Convert.ToInt32(idRol), nombre, correo, nick, Convert.ToInt32(carnet), Convert.ToInt32(telefono), palabraClave);
                     HttpContext.Current.Response.Redirect("../Usuario/AdministrarUsuarios.aspx", true);
                 }
                 else
@@ -142,14 +144,22 @@ namespace GestionAdministrativaES.Controllers
         {
             try
             {
-                Usuario usuario = usuarioDAO.validarPalabraClave(nick, palabraClave); 
-                if (usuario != null)
+                if (palabraClave != "" & nick != "")
                 {
-                    return usuario;
+                    Usuario usuario = usuarioDAO.validarPalabraClave(nick, palabraClave);
+                    if (usuario != null)
+                    {
+                        return usuario;
+                    }
+                    else
+                    {
+                        HttpContext.Current.Response.Write("<script>window.alert('Error al obtener usuario.');</script>");
+                        return null;
+                    }
                 }
                 else
                 {
-                    HttpContext.Current.Response.Write("<script>window.alert('Error al obtener usuario.');</script>");
+                    HttpContext.Current.Response.Write("<script>window.alert('No se permiten espacios en blanco!');</script>");
                     return null;
                 }
             }
@@ -174,5 +184,77 @@ namespace GestionAdministrativaES.Controllers
         }
 
         public void cargaMasiva() { }
+
+        public List<Usuario> listaDeUsuarios()
+        {
+            try
+            {
+                return usuarioDAO.listaDeUsuarios();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public void cargaMasivaUsuarios(string path)
+        {
+            
+            FileStream stream = File.Open(path , FileMode.Open, FileAccess.Read);
+
+            IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
+            try
+            {
+
+                excelReader.Read();
+                while (excelReader.Read())
+                {
+                    String idRol = "";
+                    switch (excelReader.GetString(0))
+                    {
+                        case "Administrador":
+                            idRol = "1";
+                            break;
+                        case "Operador del Sistema":
+                            idRol = "2";
+                            break;
+                        case "Catedratico":
+                            idRol = "3";
+                            break;
+                        case "Estudiante":
+                            idRol = "4";
+                            break;
+                    }
+
+                    insertarUsuarioCargaMasiva(idRol, excelReader.GetString(2), excelReader.GetString(4), excelReader.GetString(6), excelReader.GetString(7), Convert.ToString(excelReader.GetDouble(1)), Convert.ToString(excelReader.GetDouble(5)), excelReader.GetString(8));
+                }
+                excelReader.Close();
+                HttpContext.Current.Response.Redirect("../Administrador/Usuario/AdministrarUsuarios.aspx", true);
+            }
+            catch
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error al leer archivo!');</script>");
+                excelReader.Close();
+            }
+        }
+
+        public void insertarUsuarioCargaMasiva(string idRol, string nombre, string correo, string nick, string contraseña, string carnet, string telefono, string palabraClave)
+        {
+            try
+            {
+                if (nombre != "" & correo != "" & nick != "" & contraseña != "" & correo != "" & carnet != "" & telefono != "" & palabraClave != "")
+                {
+                    usuarioDAO.insertarUsuario(Convert.ToInt32(idRol), nombre, correo, nick, contraseña, Convert.ToInt32(carnet), Convert.ToInt32(telefono), palabraClave);
+                }
+                else
+                {
+                    HttpContext.Current.Response.Write("<script>window.alert('No se permiten espacios en blanco!');</script>");
+                }
+            }
+            catch (Exception e)
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error al registrar usuario!');</script>");
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace GestionAdministrativaES.Controllers
         {
             try
             {
-                if (ubicacion != "")
+                if (ubicacion != "" & capacidad != "")
                 {
                     salonDAO.insertarSalon(ubicacion, Convert.ToInt32(capacidad));
                     HttpContext.Current.Response.Redirect("AdministrarSalones.aspx", true);
@@ -45,9 +45,9 @@ namespace GestionAdministrativaES.Controllers
             }
         }
 
-        public Salon buscarSalon(int idSalon)
+        public Salon buscarSalon(string idSalon)
         {
-            Salon salon = salonDAO.buscarSalon(idSalon);
+            Salon salon = salonDAO.buscarSalon(Convert.ToInt32(idSalon));
 
             if (salon != null) {
                 return salon;
@@ -63,7 +63,7 @@ namespace GestionAdministrativaES.Controllers
         {
             try
             {
-                if (ubicacion != "")
+                if (ubicacion != "" & capacidad != "")
                 {
                     salonDAO.modificarSalon(Convert.ToInt32(idSalon), ubicacion, Convert.ToInt32(capacidad));
                     HttpContext.Current.Response.Redirect("AdministrarSalones.aspx", true);
@@ -76,6 +76,18 @@ namespace GestionAdministrativaES.Controllers
             catch
             {
                 HttpContext.Current.Response.Write("<script>window.alert('Seleccionar un elemento y verificar capacidad numero entero!');</script>");
+            }
+        }
+
+        public List<Salon> listadoSalones()
+        {
+            try
+            {
+                return salonDAO.listadoSalones();
+            }
+            catch
+            {
+                return null;
             }
         }
     }

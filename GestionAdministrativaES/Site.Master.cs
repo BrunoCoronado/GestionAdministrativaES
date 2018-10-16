@@ -13,5 +13,11 @@ namespace GestionAdministrativaES
         {
 
         }
+
+        protected void btnCerrar_Sesion(object sender, EventArgs e)
+        {
+            Views.Login.usuario = null;
+            Response.Redirect("Views/Login.aspx", true);
+        }
     }
 }

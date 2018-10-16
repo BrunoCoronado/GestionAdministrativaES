@@ -28,5 +28,16 @@ namespace GestionAdministrativaES.Models
             _Capacidad = Capacidad;
             _Estado = Estado;
         }
+
+        public Salon(string Ubicacion)
+        {
+            _Ubicacion = Ubicacion;
+        }
+
+        public Salon(int IdSalon, string Ubicacion)
+        {
+            _IdSalon = IdSalon;
+            _Ubicacion = Ubicacion;
+        }
     }
 }

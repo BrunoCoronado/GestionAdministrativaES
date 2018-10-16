@@ -85,5 +85,32 @@ namespace GestionAdministrativaES.Models.DAO
                 connection.Close();
             }
         }
+
+        public List<Salon> listadoSalones()
+        {
+            SqlConnection connection = SQL.Conexion.getConnection();
+            List<Salon> salones = new List<Salon>();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM salon;", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        salones.Add(new Salon(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3)));
+                    }
+                }
+                connection.Close();
+                return salones;
+            }
+            catch
+            {
+                connection.Close();
+                return salones;
+            }
+        }
     }
 }

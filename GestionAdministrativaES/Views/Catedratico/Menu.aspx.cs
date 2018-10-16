@@ -11,17 +11,28 @@ namespace GestionAdministrativaES.Views.Catedratico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnReservaciones_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Reservaciones/AdministrarReservaciones.aspx", true); 
-        }
-
-        protected void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Login.aspx", true);
+            try
+            {
+                if (Login.usuario.rol.idRol != 3)
+                {
+                    switch (Login.usuario.rol.idRol)
+                    {
+                        case 1:
+                            Response.Redirect("../Administrador/Menu.aspx", true);
+                            break;
+                        case 2:
+                            Response.Redirect("../OperadorDelSistema/Menu.aspx", true);
+                            break;
+                        case 4:
+                            Response.Redirect("../Estudiante/Menu.aspx", true);
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("../Login.aspx", true);
+            }
         }
     }
 }

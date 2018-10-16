@@ -42,5 +42,28 @@ namespace GestionAdministrativaES.Models
         }
 
         public Usuario() { }
+
+        public Usuario(string Nick)
+        {
+            _Nick = Nick;
+        }
+
+        public Usuario(int IdUsuario, string Nick)
+        {
+            _IdUsuario = IdUsuario;
+            _Nick = Nick;
+        }
+
+        public Usuario(Rol Rol, string Nombre, string Correo, string Nick, string Contraseña, int Carnet, int Telefono, string PalabraClave)
+        {
+            _Rol = Rol;
+            _Nombre = Nombre;
+            _Correo = Correo;
+            _Nick = Nick;
+            _Contraseña = Contraseña;
+            _Carnet = Carnet;
+            _Telefono = Telefono;
+            _PalabraClave = PalabraClave;
+        }
     }
 }

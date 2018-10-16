@@ -19,9 +19,9 @@ namespace GestionAdministrativaES.Views.Estudiante
 
         protected void btnRegistrarse_Click(object sender, EventArgs e)
         {
-            if (txtContraseña.Text.Equals(txtConfirmarContraseña.Text))
+            if (txtContraseña.Value.Equals(txtConfirmarContraseña.Value))
             {
-                usuarioControlador.registrarUsuario("4", txtNombre.Text, txtCorreo.Text, txtNick.Text, txtContraseña.Text, txtCarnet.Text, txtTelefono.Text, txtPalabraClave.Text);
+                usuarioControlador.registrarUsuario("4", txtNombre.Value, txtCorreo.Value, txtUsuario.Value, txtContraseña.Value, txtCarnet.Value, txtTelefono.Value, txtPalabraClave.Value);
             }
             else
             {

@@ -1,72 +1,60 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdministrarIncidentesSalones.aspx.cs" Inherits="GestionAdministrativaES.Views.OperadorDelSistema.Salon.AdministrarIncidentesSalones" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <p>
-        <br />
-        INCIDENTES<asp:Button ID="btnRegresar" runat="server" OnClick="btnRegresar_Click" Text="Regresar" />
-    </p>
-    <p>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="idIncidenteSalon" DataSourceID="incidentes">
-            <Columns>
-                <asp:BoundField DataField="idIncidenteSalon" HeaderText="idIncidenteSalon" InsertVisible="False" ReadOnly="True" SortExpression="idIncidenteSalon" />
-                <asp:BoundField DataField="idOperador" HeaderText="idOperador" SortExpression="idOperador" />
-                <asp:BoundField DataField="idSalon" HeaderText="idSalon" SortExpression="idSalon" />
-                <asp:BoundField DataField="idUsuario" HeaderText="idUsuario" SortExpression="idUsuario" />
-                <asp:BoundField DataField="descripcion" HeaderText="descripcion" SortExpression="descripcion" />
-                <asp:BoundField DataField="fecha" HeaderText="fecha" SortExpression="fecha" />
-                <asp:BoundField DataField="estado" HeaderText="estado" SortExpression="estado" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="incidentes" runat="server" ConnectionString="<%$ ConnectionStrings:db_gestion_administrativa_escuela_de_sistemaConnectionString %>" SelectCommand="SELECT * FROM [incidenteSalon]"></asp:SqlDataSource>
-    </p>
-    <p>
-        &nbsp;</p>
-    <p>
-        REPORTAR INCIDENTE</p>
-    <p>
-        <table style="width:100%;">
-            <tr>
-                <td style="width: 132px">Salon</td>
-                <td style="width: 344px">
-                    <asp:DropDownList ID="ddlSalon" runat="server" DataSourceID="SqlDataSource1" DataTextField="ubicacion" DataValueField="idSalon" Height="16px">
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_gestion_administrativa_escuela_de_sistemaConnectionString %>" SelectCommand="SELECT * FROM [salon]"></asp:SqlDataSource>
-                </td>
-                <td>Fecha</td>
-            </tr>
-            <tr>
-                <td style="width: 132px">Usuario</td>
-                <td style="width: 344px">
-                    <asp:DropDownList ID="ddlUsuario" runat="server" DataSourceID="usuarios" DataTextField="nick" DataValueField="idUsuario">
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="usuarios" runat="server" ConnectionString="<%$ ConnectionStrings:db_gestion_administrativa_escuela_de_sistemaConnectionString %>" SelectCommand="SELECT * FROM [usuario]"></asp:SqlDataSource>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtFecha" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 132px">Descripcion</td>
-                <td style="width: 344px">
-                    <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-    </p>
-    <p>
-        <asp:Button ID="btnReportar" runat="server" Text="Reportar" OnClick="btnReportar_Click" />
-    </p>
-    <p>
-        &nbsp;</p>
-    <p>
-        FINALIZAR INCIDENTES</p>
-    <p>
-        <asp:DropDownList ID="ddlInicidentes" runat="server" DataSourceID="incidentes" DataTextField="idIncidenteSalon" DataValueField="idIncidenteSalon">
-        </asp:DropDownList>
-    </p>
-    <p>
-        <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" OnClick="btnFinalizar_Click" />
-    </p>
-    <p>
-        &nbsp;</p>
+    <div class="container">
+        <h1 class="text-center">ADMINISTRAR INCIDENTES DE SALONES</h1>
+        <div class="row p-4">
+            <h2 class="text">Incidentes</h2>
+            <div class="table-responsive">
+                <table runat="server" class="table" id="tbIncidentes">
+                    <thead>
+                        <tr class="bg-primary">
+                            <th class="text-light" scope="col">No. Incidente</th>
+                            <th class="text-light" scope="col">Salon</th>
+                            <th class="text-light" scope="col">Usuario</th>
+                            <th class="text-light" scope="col">Descripcion</th>
+                            <th class="text-light" scope="col">Fecha</th>
+                            <th class="text-light" scope="col">Operador</th>
+                            <th class="text-light" scope="col">Estado</th>
+                            <th class="text-light" scope="col">Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-fluid">
+                    <h2 class="text">Reportar Incidente</h2>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="listaSalones">Salón</label>
+                                <select runat="server" class="form-control" id="listaSalones">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="listaUsuarios">Usuario</label>
+                                <select runat="server" class="form-control" id="listaUsuarios">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="textDescripcion">Descripción</label>
+                                <input runat="server" type="text" class="form-control" id="textDescripcion" placeholder="Descripción">
+                            </div>
+                            <div class="form-group">
+                                <label for="textFecha">Fecha</label>
+                                <input runat="server" type="date" class="form-control" id="textFecha" min="2018-10-09">
+                            </div>
+                        </div>
+                    </div>
+                    <asp:button runat="server" id="btReportar" OnClick="btnReportar_Click" type="submit" class="btn btn-primary btn-block" Text="Reportar Incidente"></asp:button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </asp:Content>

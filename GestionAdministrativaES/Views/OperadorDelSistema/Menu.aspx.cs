@@ -11,27 +11,28 @@ namespace GestionAdministrativaES.Views.OperadorDelSistema
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnSalones_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Salon/AdministrarSalones.aspx", true);
-        }
-
-        protected void btnReservaciones_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Salon/Reservacion/AdministrarReservaciones.aspx", true);
-        }
-
-        protected void btnIncidentesSalones_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Salon/AdministrarIncidentesSalones.aspx", true);
-        }
-
-        protected void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Login.aspx", true);
+            try
+            {
+                if (Login.usuario.rol.idRol != 2)
+                {
+                    switch (Login.usuario.rol.idRol)
+                    {
+                        case 1:
+                            Response.Redirect("../Administrador/Menu.aspx", true);
+                            break;
+                        case 3:
+                            Response.Redirect("../Catedratico/Menu.aspx", true);
+                            break;
+                        case 4:
+                            Response.Redirect("../Estudiante/Menu.aspx", true);
+                            break;
+                    }
+                }
+            }
+            catch 
+            {
+                Response.Redirect("../Login.aspx", true);
+            }
         }
     }
 }

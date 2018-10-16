@@ -21,12 +21,12 @@ namespace GestionAdministrativaES.Views.Administracion
         {
             try
             {
-                Models.Usuario usuario = usuarioControlador.validarPalabraClave(txtNickVPC.Text, txtPalabraClaveVPC.Text);
-                lblUsuario.Text = usuario.nick;
-                lblNombre.Text = usuario.nombre;
-                lblCorreo.Text = usuario.correo;
+                Models.Usuario usuario = usuarioControlador.validarPalabraClave(txtUsuario.Value, txtPalabraClave.Value);
+                lblUsuario.InnerText = usuario.nick;
+                lblNombre.InnerText = usuario.nombre;
+                lblCarnet.InnerText = Convert.ToString(usuario.Carnet);
             }
-            catch (Exception ex)
+            catch
             {
 
             }
@@ -34,9 +34,9 @@ namespace GestionAdministrativaES.Views.Administracion
 
         protected void btnCambiarContraseña_Click(object sender, EventArgs e)
         {
-            if (txtContraseña.Text.Equals(txtContraseñaR.Text) & lblUsuario.Text != "")
+            if (txtContraseña.Value.Equals(txtConfirmarContraseña.Value) & lblUsuario.InnerText != "")
             {
-                usuarioControlador.cambiarContraseña(lblUsuario.Text, txtContraseñaR.Text);
+                usuarioControlador.cambiarContraseña(lblUsuario.InnerText, txtContraseña.Value);
             }
             else
             {

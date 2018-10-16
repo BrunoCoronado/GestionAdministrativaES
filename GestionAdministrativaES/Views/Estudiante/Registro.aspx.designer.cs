@@ -19,7 +19,7 @@ namespace GestionAdministrativaES.Views.Estudiante {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombre;
         
         /// <summary>
         /// Control txtCarnet.
@@ -28,7 +28,7 @@ namespace GestionAdministrativaES.Views.Estudiante {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCarnet;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtCarnet;
         
         /// <summary>
         /// Control txtCorreo.
@@ -37,7 +37,7 @@ namespace GestionAdministrativaES.Views.Estudiante {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCorreo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtCorreo;
         
         /// <summary>
         /// Control txtTelefono.
@@ -46,16 +46,16 @@ namespace GestionAdministrativaES.Views.Estudiante {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtTelefono;
         
         /// <summary>
-        /// Control txtNick.
+        /// Control txtUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNick;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUsuario;
         
         /// <summary>
         /// Control txtPalabraClave.
@@ -64,7 +64,7 @@ namespace GestionAdministrativaES.Views.Estudiante {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPalabraClave;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPalabraClave;
         
         /// <summary>
         /// Control txtContraseña.
@@ -73,7 +73,7 @@ namespace GestionAdministrativaES.Views.Estudiante {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseña;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtContraseña;
         
         /// <summary>
         /// Control txtConfirmarContraseña.
@@ -82,24 +82,6 @@ namespace GestionAdministrativaES.Views.Estudiante {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmarContraseña;
-        
-        /// <summary>
-        /// Control btnRegistrarse.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistrarse;
-        
-        /// <summary>
-        /// Control btnRegresar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegresar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtConfirmarContraseña;
     }
 }

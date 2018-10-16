@@ -19,7 +19,7 @@ namespace GestionAdministrativaES.Views {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsuario;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUsuario;
         
         /// <summary>
         /// Control txtContraseña.
@@ -28,33 +28,6 @@ namespace GestionAdministrativaES.Views {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseña;
-        
-        /// <summary>
-        /// Control btnIniciarSesion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIniciarSesion;
-        
-        /// <summary>
-        /// Control btnRegistrarEstudiante.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistrarEstudiante;
-        
-        /// <summary>
-        /// Control btnRecuperarContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRecuperarContraseña;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtContraseña;
     }
 }

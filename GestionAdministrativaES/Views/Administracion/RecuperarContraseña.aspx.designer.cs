@@ -13,58 +13,22 @@ namespace GestionAdministrativaES.Views.Administracion {
     public partial class RecuperarContraseña {
         
         /// <summary>
-        /// Control btnRegresar.
+        /// Control txtUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegresar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUsuario;
         
         /// <summary>
-        /// Control txtNickVPC.
+        /// Control txtPalabraClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNickVPC;
-        
-        /// <summary>
-        /// Control txtPalabraClaveVPC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPalabraClaveVPC;
-        
-        /// <summary>
-        /// Control bntValidarPalabraClave.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bntValidarPalabraClave;
-        
-        /// <summary>
-        /// Control lblUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsuario;
-        
-        /// <summary>
-        /// Control txtContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseña;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPalabraClave;
         
         /// <summary>
         /// Control lblNombre.
@@ -73,33 +37,42 @@ namespace GestionAdministrativaES.Views.Administracion {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblNombre;
         
         /// <summary>
-        /// Control txtContraseñaR.
+        /// Control lblCarnet.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseñaR;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCarnet;
         
         /// <summary>
-        /// Control lblCorreo.
+        /// Control lblUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCorreo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUsuario;
         
         /// <summary>
-        /// Control btnCambiarContraseña.
+        /// Control txtContraseña.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCambiarContraseña;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtContraseña;
+        
+        /// <summary>
+        /// Control txtConfirmarContraseña.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtConfirmarContraseña;
     }
 }

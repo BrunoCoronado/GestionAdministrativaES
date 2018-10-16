@@ -20,8 +20,7 @@ namespace GestionAdministrativaES.Models
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    Rol rol = new Rol(reader.GetInt32(1), reader.GetString(10));
-                    Usuario usuario = new Usuario(reader.GetInt32(0), rol, reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetString(8));
+                    Usuario usuario = new Usuario(reader.GetInt32(0), new Rol(reader.GetInt32(1), reader.GetString(10)), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetString(8));
                     connection.Close();
                     return usuario;
                 }
@@ -120,13 +119,13 @@ namespace GestionAdministrativaES.Models
             }
         }
 
-        public void modificarUsuario(int idUsuario,int idRol, string nombre, string correo, string nick, string contraseña, int carnet, int telefono, string palabraClave)
+        public void modificarUsuario(int idUsuario,int idRol, string nombre, string correo, string nick, int carnet, int telefono, string palabraClave)
         {
             SqlConnection connection = SQL.Conexion.getConnection();
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("UPDATE usuario SET idRol = "+idRol+", nombre = '"+nombre+"', correo = '"+correo+"', nick='"+nick+"', contraseña = '"+contraseña+"', carnet = "+carnet+", telefono = "+telefono+", palabraClave = '"+palabraClave+"' WHERE idUsuario = "+idUsuario+";", connection);
+                SqlCommand command = new SqlCommand("UPDATE usuario SET idRol = "+idRol+", nombre = '"+nombre+"', correo = '"+correo+"', nick='"+nick+"', carnet = "+carnet+", telefono = "+telefono+", palabraClave = '"+palabraClave+"' WHERE idUsuario = "+idUsuario+";", connection);
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -178,6 +177,33 @@ namespace GestionAdministrativaES.Models
             }catch(Exception ex)
             {
                 connection.Close();
+            }
+        }
+
+        public List<Usuario> listaDeUsuarios()
+        {
+            SqlConnection connection = SQL.Conexion.getConnection();
+            List<Usuario> usuarios = new List<Usuario>();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM usuario u INNER JOIN rol r ON u.idRol = r.idRol", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        usuarios.Add(new Usuario(reader.GetInt32(0), new Rol(reader.GetInt32(1), reader.GetString(10)), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetString(8)));
+                    }
+                }
+                connection.Close();
+                return usuarios;
+            }
+            catch
+            {
+                connection.Close();
+                return usuarios;
             }
         }
     }

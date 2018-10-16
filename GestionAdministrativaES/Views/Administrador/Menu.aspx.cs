@@ -11,22 +11,28 @@ namespace GestionAdministrativaES.Views.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Administrador/Usuario/AdministrarUsuarios.aspx", true);
-        }
-
-        protected void btnCargaMasiva_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Administracion/CargaMasiva.aspx", true);
-        }
-
-        protected void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Login.aspx", true);
+            try
+            {
+                if (Login.usuario.rol.idRol != 1)
+                {
+                    switch (Login.usuario.rol.idRol)
+                    {
+                        case 2:
+                            Response.Redirect("../OperadorDelSistema/Menu.aspx", true);
+                            break;
+                        case 3:
+                            Response.Redirect("../Catedratico/Menu.aspx", true);
+                            break;
+                        case 4:
+                            Response.Redirect("../Estudiante/Menu.aspx", true);
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("../Login.aspx", true);
+            }
         }
     }
 }

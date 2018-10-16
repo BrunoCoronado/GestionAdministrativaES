@@ -16,17 +16,17 @@ namespace GestionAdministrativaES.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            usuario = null;
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            usuarioControlador.validarInicioSesion(txtUsuario.Text, txtContraseña.Text);
+            usuarioControlador.validarInicioSesion(txtUsuario.Value, txtContraseña.Value);
         }
 
         protected void btnRegistrarEstudiante_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Estudiante/Registro.aspx",true);
+            Response.Redirect("Estudiante/Registro.aspx", true);
         }
 
         protected void btnRecuperarContraseña_Click(object sender, EventArgs e)

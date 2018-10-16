@@ -11,7 +11,28 @@ namespace GestionAdministrativaES
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("Views/Login.aspx", true);
+            try
+            {
+                switch (Views.Login.usuario.rol.idRol)
+                {
+                    case 1:
+                        Response.Redirect("Views/Administrador/Menu.aspx", false);
+                        break;
+                    case 2:
+                        Response.Redirect("Views/OperadorDelSistema/Menu.aspx", false);
+                        break;
+                    case 3:
+                        Response.Redirect("Views/Catedratico/Menu.aspx", false);
+                        break;
+                    case 4:
+                        Response.Redirect("Views/Estudiante/Menu.aspx", false);
+                        break;
+                }
+            }
+            catch
+            {
+                Response.Redirect("Views/Login.aspx", true);
+            }
         }
     }
 }

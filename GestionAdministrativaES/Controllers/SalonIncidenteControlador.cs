@@ -1,4 +1,5 @@
-﻿using GestionAdministrativaES.Models.DAO;
+﻿using GestionAdministrativaES.Models;
+using GestionAdministrativaES.Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace GestionAdministrativaES.Controllers
         {
             try
             {
-                if (descripcion != "" | fecha != "")
+                if (descripcion != "" & fecha != "")
                 {
                     incidenteSalonDAO.reportarIncidente(Convert.ToInt32(idOperador), Convert.ToInt32(idSalon), Convert.ToInt32(idUsuario), descripcion, fecha, 0);
                     HttpContext.Current.Response.Redirect("AdministrarIncidentesSalones.aspx", true);
@@ -24,7 +25,7 @@ namespace GestionAdministrativaES.Controllers
                     HttpContext.Current.Response.Write("<script>window.alert('No se aceptan campos vacios');</script>");
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 HttpContext.Current.Response.Write("<script>window.alert('Error al reportar incidente.');</script>");
             }
@@ -37,9 +38,22 @@ namespace GestionAdministrativaES.Controllers
                 incidenteSalonDAO.finalizarIncidente(Convert.ToInt32(idIncidente), 1);
                 HttpContext.Current.Response.Redirect("AdministrarIncidentesSalones.aspx", true);
             }
-            catch (Exception ex)
+            catch
             {
                 HttpContext.Current.Response.Write("<script>window.alert('Error al finalizar incidente.');</script>");
+            }
+        }
+
+        public List<IncidenteSalon> obtenerIncidentesSalones()
+        {
+            try
+            {
+                List<IncidenteSalon> incidentes = incidenteSalonDAO.obtenerIncidentesSalones();
+                return incidentes;
+            }
+            catch
+            {
+                return null;
             }
         }
     }

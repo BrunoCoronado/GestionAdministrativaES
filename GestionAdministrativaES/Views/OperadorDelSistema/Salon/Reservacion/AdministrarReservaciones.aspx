@@ -1,248 +1,210 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdministrarReservaciones.aspx.cs" Inherits="GestionAdministrativaES.Views.OperadorDelSistema.Salon.Reservacion.AdministrarReservaciones" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <p>
-        <br />
-        RESERVACIONES<asp:Button ID="btnRegresar" runat="server" OnClick="btnRegresar_Click" Text="Regresar" />
-    </p>
-    <p>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="idReservacion" DataSourceID="SqlDataSource1">
-            <Columns>
-                <asp:BoundField DataField="idReservacion" HeaderText="idReservacion" InsertVisible="False" ReadOnly="True" SortExpression="idReservacion" />
-                <asp:BoundField DataField="idUsuario" HeaderText="idUsuario" SortExpression="idUsuario" />
-                <asp:BoundField DataField="idSalon" HeaderText="idSalon" SortExpression="idSalon" />
-                <asp:BoundField DataField="idOperador" HeaderText="idOperador" SortExpression="idOperador" />
-                <asp:BoundField DataField="estado" HeaderText="estado" SortExpression="estado" />
-                <asp:BoundField DataField="carta" HeaderText="carta" SortExpression="carta" />
-                <asp:BoundField DataField="actividad" HeaderText="actividad" SortExpression="actividad" />
-                <asp:BoundField DataField="horaInicio" HeaderText="horaInicio" SortExpression="horaInicio" />
-                <asp:BoundField DataField="horaFinal" HeaderText="horaFinal" SortExpression="horaFinal" />
-                <asp:BoundField DataField="periodo" HeaderText="periodo" SortExpression="periodo" />
-                <asp:BoundField DataField="fechaInicial" HeaderText="fechaInicial" SortExpression="fechaInicial" />
-                <asp:BoundField DataField="fechaFinal" HeaderText="fechaFinal" SortExpression="fechaFinal" />
-                <asp:BoundField DataField="codigoQR" HeaderText="codigoQR" SortExpression="codigoQR" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_gestion_administrativa_escuela_de_sistemaConnectionString %>" SelectCommand="SELECT * FROM [reservacion]"></asp:SqlDataSource>
-    </p>
-    <p>
-        &nbsp;</p>
-    <p>
-        VERIFICAR DISPONIBILIDAD</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        <table style="width:100%;">
-            <tr>
-                <td style="height: 20px; width: 143px">Salones</td>
-                <td style="height: 20px; width: 214px">
-                    <asp:DropDownList ID="ddlSalonesVD" runat="server" DataSourceID="SqlDataSource2" DataTextField="ubicacion" DataValueField="idSalon">
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:db_gestion_administrativa_escuela_de_sistemaConnectionString %>" SelectCommand="SELECT * FROM [salon]"></asp:SqlDataSource>
-                </td>
-                <td style="height: 20px">
-                    Fecha</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtFechaInicioVD" runat="server"></asp:TextBox>
-                </td>
-                <td style="height: 20px">
-                    Hora</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtHoraInicioVD" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 143px"></td>
-                <td style="width: 214px">
-                </td>
-                <td>
-                    Fecha Fin</td>
-                <td>
-                    <asp:TextBox ID="txtFechaFinVD" runat="server"></asp:TextBox>
-                </td>
-                <td>Hora Fin</td>
-                <td>
-                    <asp:TextBox ID="txtHoraFinVD" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-        </table>
-        
-    <p>
-        <asp:Button ID="btnComprobaraDisponibilidad" runat="server" Text="Comprobar Disponibilidad" OnClick="btnComprobaraDisponibilidad_Click" />
-    </p> 
-    </p>
-    <p>
-        &nbsp;</p>
-    <p>
-        CREAR RESERVACION</p>
-    <p>
-        <table style="width:100%;">
-            <tr>
-                <td style="height: 20px; width: 143px">Salones</td>
-                <td style="height: 20px; width: 214px">
-                    <asp:DropDownList ID="ddlSalon" runat="server" DataSourceID="SqlDataSource2" DataTextField="ubicacion" DataValueField="idSalon">
-                    </asp:DropDownList>
-                </td>
-                <td style="height: 20px">
-                    Fecha</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtFechaInicio" runat="server"></asp:TextBox>
-                </td>
-                <td style="height: 20px">
-                    Hora</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtHoraInicio" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 143px">
-                    Periodo</td>
-                <td style="width: 214px">
-                    <asp:DropDownList ID="ddlPeriodo" runat="server">
-                        <asp:ListItem>Unico</asp:ListItem>
-                        <asp:ListItem>Diario</asp:ListItem>
-                        <asp:ListItem>Semanal</asp:ListItem>
-                        <asp:ListItem>Quincenal</asp:ListItem>
-                        <asp:ListItem>Mensual</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-                <td>
-                    Fecha Fin</td>
-                <td>
-                    <asp:TextBox ID="txtFechaFIn" runat="server"></asp:TextBox>
-                </td>
-                <td>Hora Fin</td>
-                <td>
-                    <asp:TextBox ID="txtHoraFin" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 143px">
-                    Actividad</td>
-                <td style="width: 214px">
-                    <asp:TextBox ID="txtActividad" runat="server"></asp:TextBox>
-                </td>
-                <td>
-                    Usuario</td>
-                <td>
-                    <asp:DropDownList ID="ddlUsuario" runat="server" DataSourceID="SqlDataSource3" DataTextField="nick" DataValueField="idUsuario">
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:db_gestion_administrativa_escuela_de_sistemaConnectionString %>" SelectCommand="SELECT * FROM [usuario]"></asp:SqlDataSource>
-                </td>
-                <td>*Carta</td>
-                <td>
-                    <asp:FileUpload ID="FUInsertarCarta" runat="server" />
-                </td>
-            </tr>
-        </table>   
-    <asp:Button ID="btnCrear" runat="server" OnClick="btnCrear_Click" Text="Crear" />
-    </p>
-    <p>
-        ELIMINAR RESERVACION</p>
-    <p>
-        <asp:DropDownList ID="ddlReservacionEliminar" runat="server" DataSourceID="SqlDataSource1" DataTextField="idReservacion" DataValueField="idReservacion">
-        </asp:DropDownList>
-    </p>
-    <p>
-        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
-    </p>
-    <p>
-        EDITAR RESERVACION</p>
-    <p>
-        <asp:DropDownList ID="ddlReservacionEditar" runat="server" DataSourceID="SqlDataSource1" DataTextField="idReservacion" DataValueField="idReservacion">
-        </asp:DropDownList>
-    </p>
-    <p>
-        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
-    </p>
-    <p>
-        <table style="width:100%;">
-            <tr>
-                <td style="height: 20px; width: 143px">Salones</td>
-                <td style="height: 20px; width: 214px">
-                    <asp:DropDownList ID="ddlSalonM" runat="server" DataSourceID="SqlDataSource2" DataTextField="ubicacion" DataValueField="idSalon">
-                    </asp:DropDownList>
-                </td>
-                <td style="height: 20px">
-                    Fecha</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtFechaInicioM" runat="server"></asp:TextBox>
-                </td>
-                <td style="height: 20px">
-                    Hora</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtHoraInicioM" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 143px">
-                    Periodo</td>
-                <td style="width: 214px">
-                    <asp:DropDownList ID="ddlPeriodoM" runat="server">
-                        <asp:ListItem>Unico</asp:ListItem>
-                        <asp:ListItem>Diario</asp:ListItem>
-                        <asp:ListItem>Semanal</asp:ListItem>
-                        <asp:ListItem>Quincenal</asp:ListItem>
-                        <asp:ListItem>Mensual</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-                <td>
-                    Fecha Fin</td>
-                <td>
-                    <asp:TextBox ID="txtFechaFinM" runat="server"></asp:TextBox>
-                </td>
-                <td>Hora Fin</td>
-                <td>
-                    <asp:TextBox ID="txtHoraFinM" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 143px">
-                    Actividad</td>
-                <td style="width: 214px">
-                    <asp:TextBox ID="txtActividadM" runat="server"></asp:TextBox>
-                </td>
-                <td>
-                    Usuario</td>
-                <td>
-                    <asp:DropDownList ID="ddlUsuarioM" runat="server" DataSourceID="SqlDataSource3" DataTextField="nick" DataValueField="idUsuario">
-                    </asp:DropDownList>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtIdReservacionM" runat="server" Visible="False"></asp:TextBox>
-                </td>
-                <td></td>
-            </tr>
-        </table>
-    <p>
-        <asp:Button ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
-    </p>    
-    Agregar Carta</p>
-    <p>
-        <table style="width:100%;">
-            <tr>
-                <td class="modal-sm" style="width: 152px">Reservacion</td>
-                <td>
-                    <asp:DropDownList ID="ddlSalonAC" runat="server" DataSourceID="SqlDataSource1" DataTextField="idReservacion" DataValueField="idReservacion" style="margin-left: 0px">
-                    </asp:DropDownList>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 152px">carta</td>
-                <td>
-                    <asp:FileUpload ID="FUAgregarCarta" runat="server" />
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 152px">&nbsp;</td>
-                <td>
-                    <asp:Button ID="btnAgregarCarta" runat="server" OnClick="btnAgregarCarta_Click" Text="Agregar Carta" />
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-    </p>
-    <p>
-        &nbsp;</p>
+<div class="container">
+        <h1 class="text-center">ADMINISTRAR RESERVACIONES</h1>
+        <div class="row p-4">
+            <h2 class="text">Reservaciones</h2>
+            <div class="table-responsive">
+                <table runat="server" id="tbReservaciones" class="table">
+                    <thead>
+                        <tr class="bg-primary">
+                            <th class="text-light" scope="col">id Reservación</th>
+                            <th class="text-light" scope="col">Catedrático</th>
+                            <th class="text-light" scope="col">Salón</th>
+                            <th class="text-light" scope="col">Ubicación</th>
+                            <th class="text-light" scope="col">Actividad</th>
+                            <th class="text-light" scope="col">Período</th>
+                            <th class="text-light" scope="col">Hora Inicio</th>
+                            <th class="text-light" scope="col">Hora Fin</th>
+                            <th class="text-light" scope="col">Fecha Inicio</th>
+                            <th class="text-light" scope="col">Fecha Fin</th>
+                            <th class="text-light" scope="col">Operador</th>
+                            <th class="text-light" scope="col">Estado</th>
+                            <th class="text-light" scope="col">Carta</th>
+                            <th class="text-light" scope="col">CodigoQR</th>
+                            <th class="text-light" scope="col">Modificar</th>
+                            <th class="text-light" scope="col">Eliminar</th>
+                            <th class="text-light" scope="col">Carta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-fluid">
+                    <h2 class="text">Verificar Disponibilidad</h2>
+                        <small class="form-text text-muted">Llenar los campos para verificar que exista disponibilidad de espacio para la reservación.</small>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="ddlSalonV">Salón</label>
+                                    <select runat="server" class="form-control" id="ddlSalonV">
+                                    </select>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="ddlPeriodoV">Período</label>
+                                    <select runat="server" class="form-control" id="ddlPeriodoV">
+                                    </select>
+                                </div> 
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="txtFechaInicioV">Fecha Inicio</label>
+                                    <input runat="server" type="date" class="form-control" id="txtFechaInicioV">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtFechaFinV">Fecha Fin</label>
+                                    <input runat="server" type="date" class="form-control" id="txtFechaFinV">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">    
+                                    <label for="txtHoraInicioV">Hora Inicio</label>
+                                    <input runat="server" type="time" class="form-control" id="txtHoraInicioV">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="txtHoraFinV">Hora Fin</label>
+                                    <input runat="server" type="time" class="form-control" id="txtHoraFinV">
+                                </div> 
+                            </div>
+                        </div>
+                    <asp:button runat="server" type="submit" class="btn btn-primary btn-block" OnClick="btnComprobaraDisponibilidad_Click" Text="Verificar Disponibilidad"></asp:button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-fluid">
+                    <h2 class="text">Crear Reservación</h2>
+                    <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="ddlSalon">Salón</label>
+                                    <select runat="server" class="form-control" id="ddlSalon">
+                                    </select>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="ddlPeriodo">Período</label>
+                                    <select runat="server" class="form-control" id="ddlPeriodo">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ddlUsuaio">Usuario</label>
+                                    <select runat="server" class="form-control" id="ddlUsuario">
+                                    </select>
+                                </div>  
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="txtFechaInicio">Fecha Inicio</label>
+                                    <input runat="server" type="date" class="form-control" id="txtFechaInicio">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtFechaFin">Fecha Fin</label>
+                                    <input runat="server" type="date" class="form-control" id="txtFechaFin">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ddlActividad">Actividad</label>
+                                    <select runat="server" class="form-control" id="ddlActividad">
+                                    </select>
+                                </div> 
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">    
+                                    <label for="txtHoraInicio">Hora Inicio</label>
+                                    <input runat="server" type="time" class="form-control" id="txtHoraInicio">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="txtHoraFin">Hora Fin</label>
+                                    <input runat="server" type="time" class="form-control" id="txtHoraFin">
+                                </div>
+                                <div class="form-group">
+                                    <label for="fcCarta">Carta (opcional)</label>
+                                    <input runat="server" type="file" class="form-control" id="fcCarta" accept=".pdf"> 
+                                </div>
+                            </div>
+                        </div>
+                    <asp:button runat="server" type="submit" class="btn btn-primary btn-block" OnClick="btnCrear_Click" Text="Crear Reservación"></asp:button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-fluid">
+                    <h2 class="text">Añadir Carta De Reservación</h2>
+                    <small class="form-text text-muted">Seleccionar "Añadir Carta" en la tabla para cargar los datos de la reservación.</small>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Reservación:</label>
+                                <label runat="server" id="lblReservacionC"></label>
+                            </div>
+                            <div class="form-group">
+                                <label for="fcCartaC">Carta</label>
+                                <input runat="server" type="file" class="form-control" id="fcCartaC" accept=".pdf">
+                            </div>
+                        </div>
+                    </div>
+                    <asp:button runat="server" type="submit" class="btn btn-primary btn-block" OnClick="btnAgregarCarta_Click" Text="Añadir Carta"></asp:button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-fluid">
+                    <h2 class="text">Modificar Reservación</h2>
+                    <small class="form-text text-muted">Seleccionar modificar en la tabla para cargar los datos de la reservación.</small>
+                    <label runat="server" id="lblIdReservacionM" hidden="hidden"></label>
+                    <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="ddlSalonM">Salón</label>
+                                    <select runat="server" class="form-control" id="ddlSalonM">
+                                    </select>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="ddlPeriodoM">Período</label>
+                                    <select runat="server" class="form-control" id="ddlPeriodoM">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ddlUsuarioM">Usuario</label>
+                                    <select runat="server" class="form-control" id="ddlUsuarioM">
+                                    </select>
+                                </div>  
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="txtFechaInicioM">Fecha Inicio</label>
+                                    <input runat="server" type="date" class="form-control" id="txtFechaInicioM">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtFechaFinM">Fecha Fin</label>
+                                    <input runat="server" type="date" class="form-control" id="txtFechaFinM">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ddlActividad">Actividad</label>
+                                    <select runat="server" class="form-control" id="ddlActividadM">
+                                    </select>
+                                </div> 
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">    
+                                    <label for="txtHoraInicioM">Hora Inicio</label>
+                                    <input runat="server" type="time" class="form-control" id="txtHoraInicioM">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="txtHoraFinM">Hora Fin</label>
+                                    <input runat="server" type="time" class="form-control" id="txtHoraFinM">
+                                </div>
+                            </div>
+                        </div>
+                    <asp:button runat="server" type="submit" class="btn btn-primary btn-block" OnClick="btnModificar_Click" Text="Modificar Reservación"></asp:button>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

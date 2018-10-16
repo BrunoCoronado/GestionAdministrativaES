@@ -13,94 +13,67 @@ namespace GestionAdministrativaES.Views.OperadorDelSistema.Salon.Reservacion {
     public partial class AdministrarReservaciones {
         
         /// <summary>
-        /// Control btnRegresar.
+        /// Control tbReservaciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegresar;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbReservaciones;
         
         /// <summary>
-        /// Control GridView1.
+        /// Control ddlSalonV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlSalonV;
         
         /// <summary>
-        /// Control SqlDataSource1.
+        /// Control ddlPeriodoV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlPeriodoV;
         
         /// <summary>
-        /// Control ddlSalonesVD.
+        /// Control txtFechaInicioV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSalonesVD;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaInicioV;
         
         /// <summary>
-        /// Control SqlDataSource2.
+        /// Control txtFechaFinV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaFinV;
         
         /// <summary>
-        /// Control txtFechaInicioVD.
+        /// Control txtHoraInicioV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaInicioVD;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHoraInicioV;
         
         /// <summary>
-        /// Control txtHoraInicioVD.
+        /// Control txtHoraFinV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraInicioVD;
-        
-        /// <summary>
-        /// Control txtFechaFinVD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaFinVD;
-        
-        /// <summary>
-        /// Control txtHoraFinVD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraFinVD;
-        
-        /// <summary>
-        /// Control btnComprobaraDisponibilidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnComprobaraDisponibilidad;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHoraFinV;
         
         /// <summary>
         /// Control ddlSalon.
@@ -109,25 +82,7 @@ namespace GestionAdministrativaES.Views.OperadorDelSistema.Salon.Reservacion {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSalon;
-        
-        /// <summary>
-        /// Control txtFechaInicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
-        
-        /// <summary>
-        /// Control txtHoraInicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraInicio;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlSalon;
         
         /// <summary>
         /// Control ddlPeriodo.
@@ -136,34 +91,7 @@ namespace GestionAdministrativaES.Views.OperadorDelSistema.Salon.Reservacion {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPeriodo;
-        
-        /// <summary>
-        /// Control txtFechaFIn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaFIn;
-        
-        /// <summary>
-        /// Control txtHoraFin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraFin;
-        
-        /// <summary>
-        /// Control txtActividad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtActividad;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlPeriodo;
         
         /// <summary>
         /// Control ddlUsuario.
@@ -172,70 +100,88 @@ namespace GestionAdministrativaES.Views.OperadorDelSistema.Salon.Reservacion {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlUsuario;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlUsuario;
         
         /// <summary>
-        /// Control SqlDataSource3.
+        /// Control txtFechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaInicio;
         
         /// <summary>
-        /// Control FUInsertarCarta.
+        /// Control txtFechaFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FUInsertarCarta;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaFin;
         
         /// <summary>
-        /// Control btnCrear.
+        /// Control ddlActividad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrear;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlActividad;
         
         /// <summary>
-        /// Control ddlReservacionEliminar.
+        /// Control txtHoraInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlReservacionEliminar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHoraInicio;
         
         /// <summary>
-        /// Control btnEliminar.
+        /// Control txtHoraFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHoraFin;
         
         /// <summary>
-        /// Control ddlReservacionEditar.
+        /// Control fcCarta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlReservacionEditar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile fcCarta;
         
         /// <summary>
-        /// Control btnBuscar.
+        /// Control lblReservacionC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReservacionC;
+        
+        /// <summary>
+        /// Control fcCartaC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile fcCartaC;
+        
+        /// <summary>
+        /// Control lblIdReservacionM.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIdReservacionM;
         
         /// <summary>
         /// Control ddlSalonM.
@@ -244,25 +190,7 @@ namespace GestionAdministrativaES.Views.OperadorDelSistema.Salon.Reservacion {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSalonM;
-        
-        /// <summary>
-        /// Control txtFechaInicioM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaInicioM;
-        
-        /// <summary>
-        /// Control txtHoraInicioM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraInicioM;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlSalonM;
         
         /// <summary>
         /// Control ddlPeriodoM.
@@ -271,34 +199,7 @@ namespace GestionAdministrativaES.Views.OperadorDelSistema.Salon.Reservacion {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPeriodoM;
-        
-        /// <summary>
-        /// Control txtFechaFinM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaFinM;
-        
-        /// <summary>
-        /// Control txtHoraFinM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraFinM;
-        
-        /// <summary>
-        /// Control txtActividadM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtActividadM;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlPeriodoM;
         
         /// <summary>
         /// Control ddlUsuarioM.
@@ -307,51 +208,51 @@ namespace GestionAdministrativaES.Views.OperadorDelSistema.Salon.Reservacion {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlUsuarioM;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlUsuarioM;
         
         /// <summary>
-        /// Control txtIdReservacionM.
+        /// Control txtFechaInicioM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdReservacionM;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaInicioM;
         
         /// <summary>
-        /// Control btnModificar.
+        /// Control txtFechaFinM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaFinM;
         
         /// <summary>
-        /// Control ddlSalonAC.
+        /// Control ddlActividadM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSalonAC;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlActividadM;
         
         /// <summary>
-        /// Control FUAgregarCarta.
+        /// Control txtHoraInicioM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FUAgregarCarta;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHoraInicioM;
         
         /// <summary>
-        /// Control btnAgregarCarta.
+        /// Control txtHoraFinM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarCarta;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHoraFinM;
     }
 }

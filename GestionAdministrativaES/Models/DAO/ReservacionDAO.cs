@@ -76,16 +76,21 @@ namespace GestionAdministrativaES.Models.DAO
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM reservacion WHERE idReservacion = " + idReservacion + ";", connection);
+                SqlCommand command = new SqlCommand("SELECT r.idReservacion, u.idUsuario, u.nick, s.idSalon, s.ubicacion, o.idUsuario, o.nick, r.estado, r.actividad, r.periodo, r.horaInicio, r.horaFinal, r.fechaInicial, r.fechaFinal, r.carta, r.codigoQR FROM reservacion r INNER JOIN salon s ON r.idSalon = s.idSalon INNER JOIN usuario u ON r.idUsuario = u.idRol INNER JOIN usuario o ON r.idOperador = o.idUsuario WHERE idReservacion = " + idReservacion+";", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    Reservacion reservacion = new Reservacion(reader.GetInt32(0),reader.GetInt32(1),reader.GetInt32(2),reader.GetInt32(3),reader.GetInt32(4),reader.GetString(6),reader.GetString(7),reader.GetString(8),reader.GetString(9),reader.GetString(10),reader.GetString(11));
-                    if (reader.GetValue(5) != null)
+                    Reservacion reservacion = new Reservacion(reader.GetInt32(0), new Usuario(reader.GetInt32(1), reader.GetString(2)), new Salon(reader.GetInt32(3), reader.GetString(4)), new Usuario(reader.GetInt32(5), reader.GetString(6)), reader.GetInt32(7), reader.GetString(8),reader.GetString(10), reader.GetString(11), reader.GetString(9), reader.GetString(12), reader.GetString(13));
+                    try
                     {
-                        reservacion.carta = reader.GetString(6);
+                        reservacion.carta = reader.GetString(14);
+                        reservacion.CodigoQR = reader.GetString(15);
+                    }
+                    catch
+                    {
+
                     }
                     connection.Close();
                     return reservacion;
@@ -159,13 +164,73 @@ namespace GestionAdministrativaES.Models.DAO
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("UPDATE reservacion SET codigoQR = '" + codigoQR + "' WHERE idReservacion = " + idReservacion + ";", connection);
+                SqlCommand command = new SqlCommand("UPDATE reservacion SET estado = 1, codigoQR = '" + codigoQR + "' WHERE idReservacion = " + idReservacion + ";", connection);
                 command.ExecuteNonQuery();
                 connection.Close();
             }
             catch
             {
                 connection.Close();
+            }
+        }
+
+        public List<Reservacion> listaReservaciones()
+        {
+            SqlConnection connection = SQL.Conexion.getConnection();
+            List<Reservacion> reservaciones = new List<Reservacion>();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT r.idReservacion, u.idUsuario, u.nick, s.idSalon, s.ubicacion, o.idUsuario, o.nick, r.estado, r.actividad, r.periodo, r.horaInicio, r.horaFinal, r.fechaInicial, r.fechaFinal, r.carta, r.codigoQR FROM reservacion r INNER JOIN salon s ON r.idSalon = s.idSalon INNER JOIN usuario u ON r.idUsuario = u.idRol INNER JOIN usuario o ON r.idOperador = o.idUsuario;", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Reservacion reservacion = new Reservacion(reader.GetInt32(0), new Usuario(reader.GetInt32(1), reader.GetString(2)), new Salon(reader.GetInt32(3), reader.GetString(4)), new Usuario(reader.GetInt32(5), reader.GetString(6)), reader.GetInt32(7), reader.GetString(8), reader.GetString(10), reader.GetString(11), reader.GetString(9), reader.GetString(12), reader.GetString(13));
+                        try
+                        {
+                            reservacion.carta = reader.GetString(14);
+                            reservacion.CodigoQR = reader.GetString(15);
+                        }
+                        catch
+                        {
+
+                        }
+                        reservaciones.Add(reservacion);
+                    }
+                    connection.Close();
+                    return reservaciones;
+                }
+                else
+                {
+                    connection.Close();
+                    return reservaciones;
+                }
+            }
+            catch
+            {
+                connection.Close();
+                return reservaciones;
+            }
+        }
+
+        public string codigoQRReservacion(int idReservacion)
+        {
+            SqlConnection connection = SQL.Conexion.getConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT codigoQR FROM reservacion WHERE idReservacion = "+idReservacion+";", connection);
+                string codigo = command.ExecuteScalar().ToString();
+                connection.Close();
+                return codigo;
+            }
+            catch
+            {
+                connection.Close();
+                return "";
             }
         }
     }

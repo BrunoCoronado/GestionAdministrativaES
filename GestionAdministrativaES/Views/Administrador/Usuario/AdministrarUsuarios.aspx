@@ -1,160 +1,129 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdministrarUsuarios.aspx.cs" Inherits="GestionAdministrativaES.Views.Administrador.Usuario.AdministrarUsuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <p>
-        &nbsp;</p>
-    <p>
-        LISTADO DE USUARIOS<asp:Button ID="btnRegresar" runat="server" OnClick="btnRegresar_Click" Text="Regresar" />
-    </p>
-    <p>
-        &nbsp;</p>
-    <p>
-        
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="idUsuario" DataSourceID="SqlDataSource2">
-            <Columns>
-                <asp:BoundField DataField="idUsuario" HeaderText="idUsuario" InsertVisible="False" ReadOnly="True" SortExpression="idUsuario" />
-                <asp:BoundField DataField="idRol" HeaderText="idRol" SortExpression="idRol" />
-                <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
-                <asp:BoundField DataField="correo" HeaderText="correo" SortExpression="correo" />
-                <asp:BoundField DataField="nick" HeaderText="nick" SortExpression="nick" />
-                <asp:BoundField DataField="contraseña" HeaderText="contraseña" SortExpression="contraseña" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:db_gestion_administrativa_escuela_de_sistemaConnectionString %>" SelectCommand="SELECT * FROM [usuario]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_gestion_administrativa_escuela_de_sistemaConnectionString %>" SelectCommand="SELECT * FROM [salon]"></asp:SqlDataSource>
-        
-    </p>
-    <p>
-        
-        &nbsp;</p>
-    <p>
-        
-        AÑADIR USUARIO</p>
-    <p>
-        
-        <table class="nav-justified">
-            <tr>
-                <td style="height: 20px; width: 145px">Nombre</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtNombre" runat="server" Width="253px"></asp:TextBox>
-                    Carnet</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtCarnet" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="height: 20px; width: 145px">Correo</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtCorreo" runat="server" Width="247px"></asp:TextBox>
-                    Telefono</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="height: 20px; width: 145px">Nick</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtNick" runat="server" Width="247px"></asp:TextBox>
-                    Palabra Clave</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtPalabraClave" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="height: 20px; width: 145px">Contraseña</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtContraseña" runat="server" Width="247px"></asp:TextBox>
-                    Confirmar Contraseña</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtConfirmarContraseña" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="height: 20px; width: 145px">Rol</td>
-                <td style="height: 20px">
-                    <asp:DropDownList ID="ddlRol" runat="server">
-                        <asp:ListItem Value="2">Operador Del Sistema</asp:ListItem>
-                        <asp:ListItem Value="3">Catedratico</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-                <td style="height: 20px"></td>
-            </tr>
-            <tr>
-                <td style="width: 145px">
-                    <asp:Button ID="btnAgregarUsuario" runat="server"  Text="Agregar" OnClick="btnAgregarUsuario_Click" />
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-        
-    </p>
-    <br />
-    ELIMINAR USUARIO<br />
-    <asp:DropDownList ID="DropDownListEliminar" runat="server" DataSourceID="SqlDataSource2" DataTextField="nick" DataValueField="idUsuario">
-    </asp:DropDownList>
-    <asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
-    <br />
-    <br />
-    MODIFICAR USUARIO<br />
-    <table class="nav-justified">
-        <tr>
-            <td style="width: 153px; height: 22px">
-                <asp:DropDownList ID="DropDownListModificar" runat="server" DataSourceID="SqlDataSource2" DataTextField="nick" DataValueField="idUsuario">
-                </asp:DropDownList>
-            </td>
-            <td style="height: 22px; width: 128px">Nombre</td>
-            <td style="height: 22px">
-                <asp:TextBox ID="txtNombreM" runat="server" Width="259px"></asp:TextBox>
-                Carnet<asp:TextBox ID="txtCarnetM" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 153px; height: 26px;">
-                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
-            </td>
-            <td style="width: 128px; height: 26px;">Correo</td>
-            <td style="height: 26px">
-                <asp:TextBox ID="txtCorreoM" runat="server" Width="260px"></asp:TextBox>
-                Telefono<asp:TextBox ID="txtTelefonoM" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-            <tr>
-                <td style="height: 20px">
-                    &nbsp;</td>
-                <td style="height: 20px; width: 145px">Nick</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtNickM" runat="server" Width="247px"></asp:TextBox>
-                    Palabra Clave<asp:TextBox ID="txtPalabraClaveM" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="height: 20px">
-                    &nbsp;</td>
-                <td style="height: 20px; width: 145px">Contraseña</td>
-                <td style="height: 20px">
-                    <asp:TextBox ID="txtContraseñaM" runat="server" Width="247px"></asp:TextBox>
-                    Confirmar Contraseña<asp:TextBox ID="txtConfirmarContraseñaM" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="height: 20px; width: 145px">Rol</td>
-                <td style="height: 20px">
-                    &nbsp;</td>
-                <td style="height: 20px">
-                    <asp:DropDownList ID="ddlRolM" runat="server">
-                        <asp:ListItem Value="2">Operador Del Sistema</asp:ListItem>
-                        <asp:ListItem Value="3">Catedratico</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-            </tr>
-        <tr>
-            <td style="width: 153px">&nbsp;</td>
-            <td style="width: 128px">
-                <asp:Button ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
-            </td>
-            <td>
-                <asp:TextBox ID="txtIdUsuarioM" runat="server" Visible="False"></asp:TextBox>
-            </td>
-        </tr>
-    </table>
+    <div class="container">
+        <h1 class="text-center">ADMINISTRAR USUARIOS</h1>
+        <div class="row p-4">
+            <h2 class="text">Usuarios</h2>
+            <div class="table-responsive">
+                <table runat="server" id="tbUsuarios" class="table">
+                    <thead>
+                        <tr class="bg-primary">
+                            <th class="text-light" scope="col">id Usuario</th>
+                            <th class="text-light" scope="col">Carnet</th>
+                            <th class="text-light" scope="col">Nombre</th>
+                            <th class="text-light" scope="col">Correo</th>
+                            <th class="text-light" scope="col">Teléfono</th>
+                            <th class="text-light" scope="col">Nick</th>
+                            <th class="text-light" scope="col">Rol</th>
+                            <th class="text-light" scope="col">Palabra Clave</th>
+                            <th class="text-light" scope="col">Modificar</th>
+                            <th class="text-light" scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-fluid">
+                    <h2 class="text">Nuevo Usuario</h2>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="txtUsuario">Nombre</label>
+                                    <input runat="server" type="text" class="form-control" id="txtNombre" placeholder="Nombre">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="txtCorreo">Correo</label>
+                                    <input runat="server" type="email" class="form-control" id="txtCorreo" placeholder="Correo">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="txtTelefono">Teléfono</label>
+                                    <input runat="server" type="number" class="form-control" id="txtTelefono" placeholder="Teléfono">
+                                </div> 
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="txtCarnet">Carnet</label>
+                                    <input runat="server" type="number" class="form-control" id="txtCarnet" placeholder="Carnet">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ddlRol">Rol</label>
+                                    <select runat="server" class="form-control" id="ddlRol">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtContraseña">Contraseña</label>
+                                    <input runat="server" type="password" class="form-control" id="txtContraseña" placeholder="Contraseña">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="txtUsuario">Usuario</label>
+                                    <input runat="server" type="text" class="form-control" id="txtUsuario" placeholder="Usuario">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="txtPalabraClave">Palabra Clave</label>
+                                    <input runat="server" type="text" class="form-control" id="txtPalabraClave" placeholder="Palabra Clave">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="txtConfirmarContraseña">Confirmar Contraseña</label>
+                                    <input runat="server" type="password" class="form-control" id="txtConfirmarContraseña" placeholder="Confirmar Contraseña">
+                                </div> 
+                            </div>
+                        </div>
+                    <asp:button runat="server" type="submit" class="btn btn-primary btn-block" OnClick="btnAgregarUsuario_Click" Text="Crear Usuario"></asp:button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-fluid">
+                    <h2 class="text">Modificar Usuario</h2>
+                    <small class="form-text text-muted">Seleccionar modificar en la tabla para cargar los datos del usuario.</small>
+                    <label runat="server" id="lblIdUsuarioM" hidden="hidden"></label>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <label for="txtNombreM">Nombre</label>
+                                <input runat="server" type="text" class="form-control" id="txtNombreM" placeholder="Nombre">
+                            </div> 
+                            <div class="form-group">
+                                <label for="txtCorreoM">Correo</label>
+                                <input runat="server" type="email" class="form-control" id="txtCorreoM" placeholder="Correo">
+                            </div> 
+                            <div class="form-group">
+                                <label for="txtTelefonoM">Teléfono</label>
+                                <input runat="server" type="number" class="form-control" id="txtTelefonoM" placeholder="Teléfono">
+                            </div> 
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <label for="txtCarnetM">Carnet</label>
+                                <input runat="server" type="number" class="form-control" id="txtCarnetM" placeholder="Carnet">
+                            </div>
+                            <div class="form-group">
+                                <label for="ddlRolM">Rol</label>
+                                <select runat="server" class="form-control" id="ddlRolM">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtUsuarioM">Usuario</label>
+                                <input runat="server" type="text" class="form-control" id="txtUsuarioM" placeholder="Usuario">
+                            </div> 
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <label for="txtPalabraClave">Palabra Clave</label>
+                                <input runat="server" type="text" class="form-control" id="txtPalabraClaveM" placeholder="Palabra Clave">
+                            </div> 
+                        </div>
+                    </div>
+                    <asp:button runat="server" type="submit" class="btn btn-primary btn-block" OnClick="btnModificar_Click" Text="Modificar Usuario"></asp:button>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

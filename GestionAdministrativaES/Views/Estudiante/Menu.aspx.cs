@@ -11,12 +11,28 @@ namespace GestionAdministrativaES.Views.Estudiante
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Login.aspx", true);
+            try
+            {
+                if (Login.usuario.rol.idRol != 4)
+                {
+                    switch (Login.usuario.rol.idRol)
+                    {
+                        case 1:
+                            Response.Redirect("../Administrador/Menu.aspx", true);
+                            break;
+                        case 2:
+                            Response.Redirect("../OperadorDelSistema/Menu.aspx", true);
+                            break;
+                        case 3:
+                            Response.Redirect("../Catedratico/Menu.aspx", true);
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("../Login.aspx", true);
+            }
         }
     }
 }

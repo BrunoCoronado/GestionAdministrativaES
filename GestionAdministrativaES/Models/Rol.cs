@@ -18,5 +18,9 @@ namespace GestionAdministrativaES.Models
             _idRol = idRol;
             _nombre = nombre;
         }
+
+        public Rol()
+        {
+        }
     }
 }
