@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperarContraseña.aspx.cs" Inherits="GestionAdministrativaES.Views.Administracion.RecuperarContraseña" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-   y <div class="container">
+    <div class="container">
         <h1 class="text-center">CAMBIAR CONTRASEÑA</h1>
         <div class="row">
             <div class="col">

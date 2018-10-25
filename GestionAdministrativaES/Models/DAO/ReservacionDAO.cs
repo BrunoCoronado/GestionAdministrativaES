@@ -181,7 +181,7 @@ namespace GestionAdministrativaES.Models.DAO
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT r.idReservacion, u.idUsuario, u.nick, s.idSalon, s.ubicacion, o.idUsuario, o.nick, r.estado, r.actividad, r.periodo, r.horaInicio, r.horaFinal, r.fechaInicial, r.fechaFinal, r.carta, r.codigoQR FROM reservacion r INNER JOIN salon s ON r.idSalon = s.idSalon INNER JOIN usuario u ON r.idUsuario = u.idRol INNER JOIN usuario o ON r.idOperador = o.idUsuario;", connection);
+                SqlCommand command = new SqlCommand("SELECT r.idReservacion, u.idUsuario, u.nick, s.idSalon, s.ubicacion, o.idUsuario, o.nick, r.estado, r.actividad, r.periodo, r.horaInicio, r.horaFinal, r.fechaInicial, r.fechaFinal, r.carta, r.codigoQR FROM reservacion r INNER JOIN salon s ON r.idSalon = s.idSalon INNER JOIN usuario u ON r.idUsuario = u.idUsuario INNER JOIN usuario o ON r.idOperador = o.idUsuario;", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows)
