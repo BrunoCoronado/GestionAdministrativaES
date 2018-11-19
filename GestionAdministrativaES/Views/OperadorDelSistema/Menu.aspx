@@ -43,7 +43,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Insumos</h5>
                         <p class="card-text">Listado con todos los insumos que la escuela de sistemas posee para prestamos.</p>
-                        <a class="btn btn-primary">Administrar</a>
+                        <a href="Insumos/AdministrarInsumos.aspx" class="btn btn-primary">Administrar</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,17 @@
                     <div class="card-body">
                         <h5 class="card-title">Incidentes de Insumos</h5>
                         <p class="card-text">Registro de incidentes relacionados con los insumos.</p>
-                        <a class="btn btn-primary">Administrar</a>
+                        <a href="Insumos/AdministrarIncidentesInsumos.aspx" class="btn btn-primary">Administrar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 pt-4">
+                <div class="card border-primary">
+                    <img class="card-img-top p-2" src="../assets/images/incidenteInsumo.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Incidentes de Insumos</h5>
+                        <p class="card-text">Registro de incidentes relacionados con los insumos.</p>
+                        <a href="Insumos/Prestamo/AdministrarPrestamos.aspx" class="btn btn-primary">Administrar</a>
                     </div>
                 </div>
             </div>

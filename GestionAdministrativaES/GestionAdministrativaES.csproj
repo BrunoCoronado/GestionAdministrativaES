@@ -168,6 +168,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Administracion\CargaMasiva.aspx" />
     <Content Include="Views\Administracion\RecuperarContraseña.aspx" />
+    <Content Include="Views\Administrador\Insumos\AdministrarIncidentesInsumos.aspx" />
     <Content Include="Views\Administrador\Menu.aspx" />
     <Content Include="Views\Administrador\Usuario\AdministrarUsuarios.aspx" />
     <Content Include="Views\assets\css\bootstrap.min.css" />
@@ -188,9 +189,18 @@
     <Content Include="Views\assets\js\jquery-3.3.1.min.js" />
     <Content Include="Views\Catedratico\Menu.aspx" />
     <Content Include="Views\Catedratico\Reservaciones\AdministrarReservaciones.aspx" />
+    <Content Include="Views\Estudiante\Actividades\Cuestionario.aspx" />
+    <Content Include="Views\Estudiante\Actividades\VerActividad.aspx" />
+    <Content Include="Views\Estudiante\Actividades\VerActividades.aspx" />
+    <Content Include="Views\Estudiante\Actividades\VerActividadesMatriculadas.aspx" />
+    <Content Include="Views\Estudiante\Incidentes\AdministrarIncidentes.aspx" />
+    <Content Include="Views\Estudiante\Insumos\AdministrarInsumos.aspx" />
     <Content Include="Views\Estudiante\Menu.aspx" />
     <Content Include="Views\Estudiante\Registro.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\OperadorDelSistema\Insumos\AdministrarIncidentesInsumos.aspx" />
+    <Content Include="Views\OperadorDelSistema\Insumos\AdministrarInsumos.aspx" />
+    <Content Include="Views\OperadorDelSistema\Insumos\Prestamo\AdministrarPrestamos.aspx" />
     <Content Include="Views\OperadorDelSistema\Menu.aspx" />
     <Content Include="Views\OperadorDelSistema\Salon\AdministrarIncidentesSalones.aspx" />
     <Content Include="Views\OperadorDelSistema\Salon\AdministrarSalones.aspx" />
@@ -216,6 +226,10 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\IncidenteInsumoControlador.cs" />
+    <Compile Include="Controllers\InsumoControlador.cs" />
+    <Compile Include="Controllers\MatriculaControlador.cs" />
+    <Compile Include="Controllers\PrestamoControlador.cs" />
     <Compile Include="Controllers\ReservacionControlador.cs" />
     <Compile Include="Controllers\SalonControlador.cs" />
     <Compile Include="Controllers\SalonIncidenteControlador.cs" />
@@ -230,13 +244,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAO\IncidenteInsumoDAO.cs" />
     <Compile Include="Models\DAO\IncidenteSalonDAO.cs" />
+    <Compile Include="Models\DAO\InsumoDAO.cs" />
+    <Compile Include="Models\DAO\MatriculaDAO.cs" />
+    <Compile Include="Models\DAO\PrestamoDAO.cs" />
     <Compile Include="Models\DAO\ReservacionDAO.cs" />
     <Compile Include="Models\DAO\SalonDAO.cs" />
+    <Compile Include="Models\IncidenteInsumo.cs" />
     <Compile Include="Models\IncidenteSalon.cs" />
+    <Compile Include="Models\Insumo.cs" />
+    <Compile Include="Models\Matricula.cs" />
+    <Compile Include="Models\Pregunta.cs" />
+    <Compile Include="Models\Prestamo.cs" />
     <Compile Include="Models\Reservacion.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Salon.cs" />
+    <Compile Include="Models\TipoInsumo.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\DAO\UsuarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -276,6 +300,13 @@
     <Compile Include="Views\Administracion\RecuperarContraseña.aspx.designer.cs">
       <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Administrador\Insumos\AdministrarIncidentesInsumos.aspx.cs">
+      <DependentUpon>AdministrarIncidentesInsumos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Administrador\Insumos\AdministrarIncidentesInsumos.aspx.designer.cs">
+      <DependentUpon>AdministrarIncidentesInsumos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Administrador\Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +335,48 @@
     <Compile Include="Views\Catedratico\Reservaciones\AdministrarReservaciones.aspx.designer.cs">
       <DependentUpon>AdministrarReservaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Estudiante\Actividades\Cuestionario.aspx.cs">
+      <DependentUpon>Cuestionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estudiante\Actividades\Cuestionario.aspx.designer.cs">
+      <DependentUpon>Cuestionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Estudiante\Actividades\VerActividad.aspx.cs">
+      <DependentUpon>VerActividad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estudiante\Actividades\VerActividad.aspx.designer.cs">
+      <DependentUpon>VerActividad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Estudiante\Actividades\VerActividades.aspx.cs">
+      <DependentUpon>VerActividades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estudiante\Actividades\VerActividades.aspx.designer.cs">
+      <DependentUpon>VerActividades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Estudiante\Actividades\VerActividadesMatriculadas.aspx.cs">
+      <DependentUpon>VerActividadesMatriculadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estudiante\Actividades\VerActividadesMatriculadas.aspx.designer.cs">
+      <DependentUpon>VerActividadesMatriculadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Estudiante\Incidentes\AdministrarIncidentes.aspx.cs">
+      <DependentUpon>AdministrarIncidentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estudiante\Incidentes\AdministrarIncidentes.aspx.designer.cs">
+      <DependentUpon>AdministrarIncidentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Estudiante\Insumos\AdministrarInsumos.aspx.cs">
+      <DependentUpon>AdministrarInsumos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estudiante\Insumos\AdministrarInsumos.aspx.designer.cs">
+      <DependentUpon>AdministrarInsumos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Estudiante\Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -324,6 +397,27 @@
     </Compile>
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Insumos\AdministrarIncidentesInsumos.aspx.cs">
+      <DependentUpon>AdministrarIncidentesInsumos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Insumos\AdministrarIncidentesInsumos.aspx.designer.cs">
+      <DependentUpon>AdministrarIncidentesInsumos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Insumos\AdministrarInsumos.aspx.cs">
+      <DependentUpon>AdministrarInsumos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Insumos\AdministrarInsumos.aspx.designer.cs">
+      <DependentUpon>AdministrarInsumos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Insumos\Prestamo\AdministrarPrestamos.aspx.cs">
+      <DependentUpon>AdministrarPrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OperadorDelSistema\Insumos\Prestamo\AdministrarPrestamos.aspx.designer.cs">
+      <DependentUpon>AdministrarPrestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\OperadorDelSistema\Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>

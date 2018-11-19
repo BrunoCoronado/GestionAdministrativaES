@@ -7,72 +7,81 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace GestionAdministrativaES.Views.Catedratico.Reservaciones {
+namespace GestionAdministrativaES.Views.Estudiante.Actividades {
     
     
-    public partial class AdministrarReservaciones {
+    public partial class VerActividad {
         
         /// <summary>
-        /// Control tbReservaciones.
+        /// Control lblIdReservacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbReservaciones;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIdReservacion;
         
         /// <summary>
-        /// Control lblReservacionP.
+        /// Control txtActividad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReservacionP;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtActividad;
         
         /// <summary>
-        /// Control fcPresentacion.
+        /// Control txtInstructor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile fcPresentacion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtInstructor;
         
         /// <summary>
-        /// Control lblIdCuestionario.
+        /// Control txtSalon.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIdCuestionario;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtSalon;
         
         /// <summary>
-        /// Control lblReservacionC.
+        /// Control txtFechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReservacionC;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtFechaInicio;
         
         /// <summary>
-        /// Control txtPregunta.
+        /// Control txtFechaFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPregunta;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtFechaFin;
         
         /// <summary>
-        /// Control tbCuestionario.
+        /// Control txtHoraInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbCuestionario;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtHoraInicio;
+        
+        /// <summary>
+        /// Control txtHoraFin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtHoraFin;
     }
 }

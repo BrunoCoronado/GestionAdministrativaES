@@ -59,7 +59,6 @@ namespace GestionAdministrativaES.Views.Administracion
                     StatusLabel.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
                 }
             }
-            
         }
     }
 }

@@ -93,6 +93,18 @@ namespace GestionAdministrativaES.Controllers
             }
         }
 
+        public Reservacion buscarReservacionCuestionario(string idReservacion)
+        {
+            try
+            {
+                return reservacionDAO.buscarReservacionCuestionario(Convert.ToInt32(idReservacion));
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public void modificarReservacion(string idReservacion, string idUsuario, string idSalon, string estado, string periodo, string actividad, string horaInicio, string horaFinal, string fechaInicial, string fechaFinal)
         {
             try
@@ -181,7 +193,18 @@ namespace GestionAdministrativaES.Controllers
             {
                 return null;
             }
+        }
 
+        public List<Reservacion> listaActividades()
+        {
+            try
+            {
+                return reservacionDAO.listaActividades();
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public string codigoQRReservacion(string idReservacion)
@@ -193,6 +216,86 @@ namespace GestionAdministrativaES.Controllers
             catch
             {
                 return "";
+            }
+        }
+
+        public string presentacionReservacion(string idReservacion)
+        {
+            try
+            {
+                return reservacionDAO.presentacionReservacion(Convert.ToInt32(idReservacion));
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        public void agregarPresentacion(string idReservacion, string presentacion)
+        {
+            try
+            {
+                if (presentacion != "")
+                {
+                    reservacionDAO.insertarPresentacion(Convert.ToInt32(idReservacion), presentacion);
+                }
+                else
+                {
+                    HttpContext.Current.Response.Write("<script>window.alert('Seleccione una presentacion');</script>");
+                }
+            }
+            catch
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error');</script>");
+            }
+        }
+
+        public int agregarCuestionario(string idReservacion)
+        {
+            try
+            {
+                return reservacionDAO.crearCuestionario(Convert.ToInt32(idReservacion));
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public Pregunta agregarPregunta(string idCuestionario, string pregunta)
+        {
+            try
+            {
+                return reservacionDAO.agregarPregunta(Convert.ToInt32(idCuestionario), pregunta);
+            }
+            catch
+            {
+                HttpContext.Current.Response.Write("<script>window.alert('Error');</script>");
+                return null;
+            }
+        }
+
+        public List<Pregunta> preguntasCuestionario(int idCuestionario)
+        {
+            try
+            {
+                return reservacionDAO.preguntasDelCuestionario(idCuestionario);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public List<Pregunta> preguntas(string idReservacion)
+        {
+            try
+            {
+                return reservacionDAO.preguntasCuestionario(Convert.ToInt32(idReservacion));
+            }
+            catch
+            {
+                return null;
             }
         }
     }

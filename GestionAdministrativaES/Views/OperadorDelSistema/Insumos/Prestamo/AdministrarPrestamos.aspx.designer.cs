@@ -7,72 +7,90 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace GestionAdministrativaES.Views.Catedratico.Reservaciones {
+namespace GestionAdministrativaES.Views.OperadorDelSistema.Insumos.Prestamo {
     
     
-    public partial class AdministrarReservaciones {
+    public partial class AdministrarPrestamos {
         
         /// <summary>
-        /// Control tbReservaciones.
+        /// Control tbPrestamos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbReservaciones;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbPrestamos;
         
         /// <summary>
-        /// Control lblReservacionP.
+        /// Control ddlInsumo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReservacionP;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlInsumo;
         
         /// <summary>
-        /// Control fcPresentacion.
+        /// Control ddlUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile fcPresentacion;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlUsuario;
         
         /// <summary>
-        /// Control lblIdCuestionario.
+        /// Control txtFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIdCuestionario;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFecha;
         
         /// <summary>
-        /// Control lblReservacionC.
+        /// Control lblIdPrestamoM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReservacionC;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIdPrestamoM;
         
         /// <summary>
-        /// Control txtPregunta.
+        /// Control ddlInsumoM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPregunta;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlInsumoM;
         
         /// <summary>
-        /// Control tbCuestionario.
+        /// Control ddlUsuarioM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbCuestionario;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlUsuarioM;
+        
+        /// <summary>
+        /// Control txtFechaM.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaM;
+        
+        /// <summary>
+        /// Control lblEstadoM.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEstadoM;
     }
 }

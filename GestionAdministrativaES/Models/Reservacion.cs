@@ -20,6 +20,8 @@ namespace GestionAdministrativaES.Models
         private string _FechaInicial;
         private string _FechaFinal;
         private string _CodigoQR;
+        private int _cuestionario;
+        private int _cupo;
 
         public int idReservacion { get => _IdReservacion; set => _IdReservacion = value; }
         public int estado { get => _Estado; set => _Estado = value; }
@@ -34,6 +36,7 @@ namespace GestionAdministrativaES.Models
         public Usuario Usuario { get => _Usuario; set => _Usuario = value; }
         public Salon Salon { get => _Salon; set => _Salon = value; }
         public Usuario Operador { get => _Operador; set => _Operador = value; }
+        public int cuestionario { get => _cuestionario; set => _cuestionario = value; }
 
         public Reservacion()
         {
@@ -68,6 +71,24 @@ namespace GestionAdministrativaES.Models
             _Periodo = Periodo;
             _FechaInicial = FechaInicial;
             _FechaFinal = FechaFinal;
+        }
+
+        public Reservacion(int IdReservacion, int cuestionario)
+        {
+            _IdReservacion = IdReservacion;
+            _cuestionario = cuestionario;
+        }
+
+        public Reservacion(Usuario Usuario, Salon Salon, string Actividad, string HoraInicio, string FechaInicial, int cupo, int estado, int idReservacion)
+        {
+            _Usuario = Usuario;
+            _Salon = Salon;
+            _Actividad = Actividad;
+            _HoraInicio = HoraInicio;
+            _FechaInicial = FechaInicial;
+            _cupo = cupo;
+            _Estado = estado;
+            _IdReservacion = idReservacion;
         }
     }
 }
